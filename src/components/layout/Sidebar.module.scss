@@ -1,0 +1,139 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.sidebar {
+  grid-area:     sidebar;
+  @include flex(column, stretch, flex-start, 0);
+  background:    $surface;
+  border-inline-end: 1px solid $border;
+  padding:       $space-6 $space-3;
+  overflow:      hidden;
+  position:      sticky;
+  top:           $navbar-height;
+  height:        calc(100dvh - $navbar-height);
+  transition:    width $duration-slow $ease-out-expo,
+                 padding $duration-slow $ease-out-expo;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// --- Progress card ---------------------------------------
+
+.progressCard {
+  @include flex(column, stretch, flex-start, $space-2);
+  padding:       $space-4;
+  background:    $accent-pale;
+  border-radius: $radius-md;
+  margin-bottom: $space-6;
+  animation:     fadeIn $duration-slow $ease-out-expo;
+}
+
+.progressLabel {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  font-weight: $weight-semibold;
+  color:       $accent;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.progressBar {
+  height:        6px;
+  background:    rgba($accent, 0.2);
+  border-radius: $radius-full;
+  overflow:      hidden;
+}
+
+.progressFill {
+  height:        100%;
+  background:    $accent;
+  border-radius: $radius-full;
+  transition:    width $duration-slower $ease-out-expo;
+}
+
+.progressPct {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  font-weight: $weight-semibold;
+  color:       $accent;
+  text-align:  end;
+}
+
+// --- Nav -------------------------------------------------
+
+.nav {
+  @include flex(column, stretch, flex-start, $space-1);
+  flex: 1;
+}
+
+.bottomNav {
+  @include flex(column, stretch, flex-start, $space-1);
+  padding-top: $space-4;
+  border-top:  1px solid $border;
+}
+
+.navItem {
+  @include flex(row, center, flex-start, $space-3);
+  @include focus-ring;
+  padding:       $space-3 $space-4;
+  border-radius: $radius-md;
+  color:         $muted;
+  text-decoration: none;
+  transition:    all $duration-base $ease-in-out;
+  white-space:   nowrap;
+
+  &:hover {
+    color:      $ink;
+    background: $surface-muted;
+
+    .navIcon {
+      color: $ink;
+    }
+  }
+
+  &.active {
+    color:      $accent;
+    background: $accent-pale;
+    font-weight: $weight-semibold;
+
+    .navIcon {
+      color: $accent;
+    }
+  }
+}
+
+.navIcon {
+  font-size:  20px !important;
+  flex-shrink: 0;
+  transition:  color $duration-fast $ease-in-out;
+}
+
+.navLabel {
+  font-family:   $font-body;
+  font-size:     $text-sm;
+  font-weight:   $weight-medium;
+  line-height:   1;
+  color:         inherit;
+  transition:    opacity $duration-base $ease-in-out;
+
+  [data-collapsed='true'] & {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
+}
+
+// --- Collapsed state -------------------------------------
+
+[data-collapsed='true'] {
+  .navItem {
+    justify-content: center;
+    padding: $space-3;
+  }
+
+  .progressCard {
+    display: none;
+  }
+}

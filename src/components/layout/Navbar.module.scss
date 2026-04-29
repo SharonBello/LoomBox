@@ -1,0 +1,131 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.navbar {
+  grid-area: navbar;
+  @include flex-between;
+  height:          $navbar-height;
+  padding:         0 $space-6;
+  background:      rgba($surface, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom:   1px solid $border;
+  position:        sticky;
+  top:             0;
+  z-index:         $z-sticky;
+
+  @include mobile {
+    padding: 0 $space-4;
+  }
+}
+
+// --- Left side ---
+
+.left {
+  @include flex(row, center, flex-start, $space-3);
+}
+
+.menuBtn {
+  color: $ink-light !important;
+
+  &:hover {
+    color:      $ink !important;
+    background: $surface-muted !important;
+  }
+}
+
+.brand {
+  @include flex(row, center, flex-start, $space-2);
+  text-decoration: none;
+}
+
+.brandIcon {
+  font-size:  18px;
+  color:      $accent;
+  line-height: 1;
+  display: block;
+  animation: spin 8s linear infinite;
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+}
+
+.brandName {
+  font-family:    $font-display;
+  font-size:      $text-xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    1;
+}
+
+// --- Right side ---
+
+.right {
+  @include flex(row, center, flex-end, $space-3);
+}
+
+.langBtn {
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding:       $space-2 $space-3;
+  border-radius: $radius-full;
+  border:        1px solid $border;
+  background:    $surface;
+  transition:    all $duration-base $ease-in-out;
+  cursor:        pointer;
+
+  &:hover {
+    border-color: $accent;
+    background:   $accent-pale;
+  }
+}
+
+.langFlag {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.langLabel {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  font-weight: $weight-semibold;
+  color:       $ink-light;
+  letter-spacing: 0.05em;
+}
+
+.avatarBtn {
+  padding: 2px !important;
+}
+
+.avatar {
+  background: $accent !important;
+  font-family: $font-body !important;
+  font-size: $text-sm !important;
+  font-weight: $weight-semibold !important;
+}
+
+// --- User menu ---
+
+.menuHeader {
+  @include flex(column, flex-start, flex-start, $space-1);
+  padding: $space-3 $space-4;
+}
+
+.menuName {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  font-weight: $weight-semibold;
+  color:       $ink;
+}
+
+.menuEmail {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  color:       $muted;
+  @include truncate;
+  max-width: 180px;
+}

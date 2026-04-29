@@ -1,0 +1,47 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.shell {
+  display: grid;
+  grid-template-rows:    $navbar-height 1fr;
+  grid-template-columns: $sidebar-width 1fr;
+  grid-template-areas:
+    'navbar  navbar'
+    'sidebar main';
+  min-height: 100dvh;
+  background: $bg;
+  transition: grid-template-columns $duration-slow $ease-out-expo;
+
+  &[data-sidebar='closed'] {
+    grid-template-columns: $sidebar-collapsed 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 0 1fr;
+    grid-template-areas:
+      'navbar navbar'
+      'main   main';
+
+    &[data-sidebar='open'] {
+      grid-template-columns: 0 1fr;
+    }
+  }
+}
+
+.main {
+  grid-area: main;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+}
+
+.content {
+  max-width: $content-max;
+  margin: 0 auto;
+  padding: $space-8;
+  animation: fadeIn $duration-slow $ease-out-expo both;
+
+  @include mobile {
+    padding: $space-4;
+  }
+}

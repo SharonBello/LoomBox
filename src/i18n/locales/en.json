@@ -1,0 +1,163 @@
+{
+  "brand": {
+    "name": "LoomBox",
+    "tagline": "Weave your family stories"
+  },
+  "nav": {
+    "dashboard":  "Dashboard",
+    "stories":    "Stories",
+    "familyTree": "Family Tree",
+    "recipes":    "Recipes",
+    "myBook":     "My Book",
+    "settings":   "Settings"
+  },
+  "auth": {
+    "signIn":           "Sign In",
+    "signOut":          "Sign Out",
+    "signUp":           "Create Account",
+    "email":            "Email address",
+    "password":         "Password",
+    "forgotPassword":   "Forgot password?",
+    "noAccount":        "Don't have an account?",
+    "haveAccount":      "Already have an account?",
+    "continueGoogle":   "Continue with Google",
+    "orDivider":        "or",
+    "welcomeBack":      "Welcome back",
+    "createYourAccount":"Create your account",
+    "joinLoombox":      "Start weaving your family stories today"
+  },
+  "landing": {
+    "hero": {
+      "headline":    "Your family's story\ndeserves to be told",
+      "subheadline": "LoomBox uses AI to help you gather, write, and beautifully preserve the stories, photos, and memories that make your family unique.",
+      "cta":         "Start for free",
+      "ctaSecondary":"See how it works"
+    },
+    "features": {
+      "title": "Everything you need to preserve what matters",
+      "ai": {
+        "title": "AI Story Weaver",
+        "desc":  "Our AI asks thoughtful questions, suggests phrasing, and helps you bring memories to life in your own voice."
+      },
+      "tree": {
+        "title": "Family Tree",
+        "desc":  "Build your family tree and link stories, photos, and recipes to each member across generations."
+      },
+      "images": {
+        "title": "AI-Generated Illustrations",
+        "desc":  "Automatically generate era-accurate illustrations and historical context for every story you tell."
+      },
+      "book": {
+        "title": "Beautiful Books",
+        "desc":  "Choose from three stunning book styles and download a print-ready PDF to treasure forever."
+      }
+    },
+    "bookStyles": {
+      "title": "Three styles. One heirloom.",
+      "heritage": {
+        "name": "Heritage",
+        "desc": "Warm and timeless, like an antique journal"
+      },
+      "canvas": {
+        "name": "Canvas",
+        "desc": "Clean and editorial, gallery-quality layout"
+      },
+      "scrapbook": {
+        "name": "Scrapbook",
+        "desc": "Playful and personal, a handcrafted feel"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting":       "Good {{time}}, {{name}}",
+    "continueStory":  "Continue your story",
+    "newStory":       "New story",
+    "recentStories":  "Recent stories",
+    "progressTitle":  "Your book progress",
+    "storiesAdded":   "{{count}} stories added",
+    "membersAdded":   "{{count}} family members",
+    "photosAdded":    "{{count}} photos uploaded"
+  },
+  "story": {
+    "new":           "New Story",
+    "title":         "Story title",
+    "titlePlaceholder": "What do you want to call this story?",
+    "prompts":       "Story prompts",
+    "promptHelp":    "Let AI guide you with questions",
+    "write":         "Write freely",
+    "enhance":       "Enhance with AI",
+    "addPhoto":      "Add a photo",
+    "addMember":     "Tag a family member",
+    "era":           "When did this take place?",
+    "location":      "Where did this take place?",
+    "save":          "Save story",
+    "publish":       "Add to book",
+    "generating":    "Weaving your story…",
+    "findingContext":"Finding historical context…"
+  },
+  "tree": {
+    "title":      "Family Tree",
+    "addMember":  "Add member",
+    "name":       "Full name",
+    "born":       "Date of birth",
+    "died":       "Date of death",
+    "birthplace": "Place of birth",
+    "relation":   "Relationship",
+    "relations": {
+      "parent":   "Parent",
+      "child":    "Child",
+      "sibling":  "Sibling",
+      "spouse":   "Spouse",
+      "grandparent": "Grandparent"
+    }
+  },
+  "recipes": {
+    "title":        "Family Recipes",
+    "add":          "Add recipe",
+    "name":         "Recipe name",
+    "from":         "Passed down from",
+    "occasion":     "Occasion",
+    "ingredients":  "Ingredients",
+    "steps":        "Instructions",
+    "story":        "The story behind this recipe",
+    "aiHelp":       "Help me write this recipe's story"
+  },
+  "book": {
+    "title":       "My Family Book",
+    "style":       "Book style",
+    "preview":     "Preview",
+    "download":    "Download PDF",
+    "downloading": "Preparing your book…",
+    "styles": {
+      "heritage":  "Heritage",
+      "canvas":    "Canvas",
+      "scrapbook": "Scrapbook"
+    },
+    "sections": {
+      "stories":  "Stories",
+      "tree":     "Family Tree",
+      "recipes":  "Recipes",
+      "photos":   "Photo Gallery"
+    }
+  },
+  "common": {
+    "save":       "Save",
+    "cancel":     "Cancel",
+    "delete":     "Delete",
+    "edit":       "Edit",
+    "back":       "Back",
+    "next":       "Next",
+    "loading":    "Loading…",
+    "error":      "Something went wrong",
+    "retry":      "Try again",
+    "upload":     "Upload",
+    "uploading":  "Uploading…",
+    "search":     "Search",
+    "noResults":  "No results found",
+    "required":   "Required",
+    "optional":   "Optional",
+    "morning":    "morning",
+    "afternoon":  "afternoon",
+    "evening":    "evening"
+  }
+}

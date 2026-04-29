@@ -1,0 +1,40 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.wrapper {
+  @include flex(column, center, center, $space-6);
+  min-height: 100dvh;
+  background: $bg;
+}
+
+.icon {
+  font-size:  32px;
+  color:      $accent;
+  animation:  spin 3s linear infinite;
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+}
+
+.bar {
+  width:         160px;
+  height:        3px;
+  background:    $border;
+  border-radius: $radius-full;
+  overflow:      hidden;
+}
+
+.barFill {
+  height:     100%;
+  width:      40%;
+  background: $accent;
+  border-radius: $radius-full;
+  animation:  slide 1.2s ease-in-out infinite;
+
+  @keyframes slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+  }
+}

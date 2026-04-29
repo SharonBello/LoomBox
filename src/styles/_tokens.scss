@@ -1,0 +1,120 @@
+// ============================================================
+// LoomBox Design Tokens
+// All visual values defined here as CSS custom properties.
+// Use these everywhere — never hardcode values in components.
+// ============================================================
+
+// --- Color Palette ----------------------------------------
+
+$ink:           #1a1929;
+$ink-light:     #3d3b52;
+$accent:        #c9954a;
+$accent-light:  #e8c98a;
+$accent-pale:   #f8f0e0;
+$bg:            #faf8f4;
+$bg-warm:       #f4f0e8;
+$surface:       #ffffff;
+$surface-muted: #f5f2ec;
+$muted:         #9896a0;
+$border:        #e8e4dc;
+$border-strong: #d4cec4;
+$success:       #4caf82;
+$warning:       #e8a04a;
+$error:         #e05c5c;
+
+// --- Spacing (8pt grid) -----------------------------------
+
+$space-1:  4px;
+$space-2:  8px;
+$space-3:  12px;
+$space-4:  16px;
+$space-5:  20px;
+$space-6:  24px;
+$space-8:  32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+$space-20: 80px;
+$space-24: 96px;
+$space-32: 128px;
+
+// --- Typography -------------------------------------------
+
+$font-display:     'Cormorant Garamond', Georgia, serif;
+$font-body:        'Plus Jakarta Sans', system-ui, sans-serif;
+$font-handwritten: 'Caveat', cursive;
+
+$text-xs:   11px;
+$text-sm:   13px;
+$text-base: 15px;
+$text-md:   17px;
+$text-lg:   20px;
+$text-xl:   24px;
+$text-2xl:  30px;
+$text-3xl:  38px;
+$text-4xl:  48px;
+$text-5xl:  64px;
+
+$leading-tight:  1.2;
+$leading-snug:   1.35;
+$leading-base:   1.6;
+$leading-relaxed: 1.75;
+
+$weight-light:    300;
+$weight-regular:  400;
+$weight-medium:   500;
+$weight-semibold: 600;
+$weight-bold:     700;
+
+// --- Borders & Radius ------------------------------------
+
+$radius-xs:   4px;
+$radius-sm:   8px;
+$radius-md:   14px;
+$radius-lg:   22px;
+$radius-xl:   34px;
+$radius-full: 9999px;
+
+// --- Shadows ---------------------------------------------
+
+$shadow-xs: 0 1px 2px rgba(26, 25, 41, 0.05);
+$shadow-sm: 0 2px 8px rgba(26, 25, 41, 0.07), 0 1px 2px rgba(26, 25, 41, 0.04);
+$shadow-md: 0 4px 20px rgba(26, 25, 41, 0.09), 0 2px 6px rgba(26, 25, 41, 0.04);
+$shadow-lg: 0 12px 48px rgba(26, 25, 41, 0.12), 0 4px 14px rgba(26, 25, 41, 0.06);
+$shadow-xl: 0 24px 80px rgba(26, 25, 41, 0.16), 0 8px 24px rgba(26, 25, 41, 0.08);
+
+// --- Transitions -----------------------------------------
+
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+
+$duration-fast:   120ms;
+$duration-base:   220ms;
+$duration-slow:   380ms;
+$duration-slower: 600ms;
+
+// --- Z-Index ---------------------------------------------
+
+$z-base:     0;
+$z-raised:   10;
+$z-dropdown: 100;
+$z-sticky:   200;
+$z-overlay:  300;
+$z-modal:    400;
+$z-toast:    500;
+
+// --- Breakpoints -----------------------------------------
+
+$bp-xs: 360px;
+$bp-sm: 600px;
+$bp-md: 900px;
+$bp-lg: 1200px;
+$bp-xl: 1536px;
+
+// --- Layout ----------------------------------------------
+
+$navbar-height:       64px;
+$sidebar-width:       260px;
+$sidebar-collapsed:   72px;
+$content-max:         1200px;
+$content-reading-max: 720px;
