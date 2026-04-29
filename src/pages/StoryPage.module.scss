@@ -1,0 +1,82 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.page { animation: fadeIn $duration-slow $ease-out-expo both; }
+.loader { @include flex-center; min-height: 40vh; }
+.notFound { @include flex(column, center, center, $space-4); min-height: 40vh; text-align: center;
+  h2 { font-family: $font-display; font-size: $text-2xl; color: $ink; }
+  a  { font-family: $font-body; color: $accent; }
+}
+
+.toolbar { @include flex-between; margin-bottom: $space-8; flex-wrap: wrap; gap: $space-3; }
+
+.backBtn {
+  @include flex(row, center, flex-start, $space-2);
+  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
+  color: $muted; text-decoration: none; transition: color $duration-fast $ease-in-out;
+  &:hover { color: $ink; }
+}
+
+.toolbarActions { @include flex(row, center, flex-end, $space-2); }
+
+.actionBtn {
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-2 $space-4; border: 1.5px solid $border;
+  border-radius: $radius-md; font-family: $font-body; font-size: $text-sm;
+  font-weight: $weight-semibold; color: $ink-light; cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover { border-color: $accent; color: $accent; background: $accent-pale; }
+}
+
+.inBook { border-color: $accent; color: $accent; background: $accent-pale; }
+.deleteBtn { &:hover { border-color: $error; color: $error; background: rgba($error, 0.05); } }
+
+.article {
+  max-width: $content-reading-max; margin: 0 auto;
+  background: $surface; border: 1px solid $border;
+  border-radius: $radius-lg; overflow: hidden; box-shadow: $shadow-sm;
+}
+
+.hero { width: 100%; height: 320px; object-fit: cover; display: block;
+  @include mobile { height: 200px; }
+}
+
+.body { padding: $space-10; @include mobile { padding: $space-6; } }
+
+.meta {
+  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
+  color: $accent; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: $space-3;
+}
+
+.title {
+  font-family: $font-display; font-size: clamp($text-2xl, 4vw, $text-4xl);
+  font-weight: $weight-medium; color: $ink; letter-spacing: -0.02em;
+  line-height: $leading-tight; margin-bottom: $space-6;
+}
+
+.context {
+  @include flex(column, flex-start, flex-start, $space-2);
+  padding: $space-4 $space-5; background: $accent-pale;
+  border-radius: $radius-md; margin-bottom: $space-6;
+  border-inline-start: 3px solid $accent;
+  p { font-family: $font-body; font-size: $text-sm; color: $ink-light; line-height: $leading-relaxed; font-style: italic; }
+}
+
+.contextLabel {
+  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
+  color: $accent; text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+.content {
+  p { font-family: $font-body; font-size: $text-md; color: $ink-light; line-height: $leading-relaxed; margin-bottom: $space-5; }
+}
+
+.footer {
+  margin-top: $space-8; padding-top: $space-6; border-top: 1px solid $border;
+}
+
+.date {
+  font-family: $font-body; font-size: $text-xs; color: $muted; font-weight: $weight-medium;
+}

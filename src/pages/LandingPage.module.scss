@@ -1,0 +1,677 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+// ── Page ─────────────────────────────────────────────────
+
+.page {
+  min-height: 100dvh;
+  background: $bg;
+  overflow-x: hidden;
+}
+
+// ── Shared section layout ────────────────────────────────
+
+.sectionInner {
+  max-width: $content-max;
+  margin:    0 auto;
+  padding:   $space-20 $space-8;
+
+  @include mobile {
+    padding: $space-12 $space-5;
+  }
+}
+
+.sectionLabel {
+  font-family:    $font-body;
+  font-size:      $text-xs;
+  font-weight:    $weight-semibold;
+  color:          $accent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom:  $space-3;
+}
+
+.sectionTitle {
+  font-family:    $font-display;
+  font-size:      clamp($text-2xl, 4vw, $text-4xl);
+  font-weight:    $weight-medium;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    $leading-tight;
+  max-width:      680px;
+  margin-bottom:  $space-12;
+}
+
+// ── Landing Nav ──────────────────────────────────────────
+
+.nav {
+  position:        sticky;
+  top:             0;
+  z-index:         $z-sticky;
+  background:      rgba($bg, 0.88);
+  backdrop-filter: blur(20px);
+  border-bottom:   1px solid $border;
+}
+
+.navInner {
+  @include flex-between;
+  max-width: $content-max;
+  margin:    0 auto;
+  padding:   0 $space-8;
+  height:    $navbar-height;
+
+  @include mobile {
+    padding: 0 $space-5;
+  }
+}
+
+.navBrand {
+  @include flex(row, center, flex-start, $space-2);
+  text-decoration: none;
+}
+
+.brandStar {
+  font-size:  20px;
+  color:      $accent;
+  animation:  rotateStar 8s linear infinite;
+  display:    block;
+
+  @keyframes rotateStar {
+    to { transform: rotate(360deg); }
+  }
+}
+
+.brandName {
+  font-family:    $font-display;
+  font-size:      $text-xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    1;
+}
+
+.navActions {
+  @include flex(row, center, flex-end, $space-3);
+}
+
+.navSignIn {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  font-weight: $weight-medium;
+  color:       $ink-light;
+  text-decoration: none;
+  padding: $space-2 $space-4;
+  border-radius: $radius-md;
+  transition: all $duration-base $ease-in-out;
+
+  &:hover {
+    color:      $ink;
+    background: $surface-muted;
+  }
+}
+
+.navCta {
+  font-family:   $font-body;
+  font-size:     $text-sm;
+  font-weight:   $weight-semibold;
+  color:         $surface;
+  text-decoration: none;
+  padding:       $space-2 $space-5;
+  background:    $ink;
+  border-radius: $radius-md;
+  transition:    all $duration-base $ease-in-out;
+
+  &:hover {
+    background: $ink-light;
+    transform:  translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// ── Hero ─────────────────────────────────────────────────
+
+.hero {
+  position:   relative;
+  min-height: 90dvh;
+  display:    grid;
+  grid-template-columns: 1fr 480px;
+  align-items: center;
+  gap:        $space-16;
+  max-width:  $content-max;
+  margin:     0 auto;
+  padding:    $space-20 $space-8 $space-16;
+  overflow:   hidden;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding:     $space-12 $space-5;
+    min-height:  auto;
+  }
+}
+
+// Decorative blobs
+.blob1 {
+  position:      absolute;
+  top:           -100px;
+  right:         -80px;
+  width:         500px;
+  height:        500px;
+  border-radius: 50% 60% 40% 70%;
+  background:    radial-gradient(ellipse, rgba($accent, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation:     blobFloat 12s ease-in-out infinite alternate;
+
+  @keyframes blobFloat {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(20px, 30px) scale(1.05); }
+  }
+}
+
+.blob2 {
+  position:      absolute;
+  bottom:        0;
+  left:          -120px;
+  width:         400px;
+  height:        400px;
+  border-radius: 60% 40% 70% 30%;
+  background:    radial-gradient(ellipse, rgba($accent-light, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  animation:     blobFloat 16s ease-in-out infinite alternate-reverse;
+}
+
+.blob3 {
+  position:      absolute;
+  top:           40%;
+  left:          50%;
+  width:         300px;
+  height:        300px;
+  border-radius: 50%;
+  background:    radial-gradient(ellipse, rgba($accent, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position:  relative;
+  z-index:   1;
+  animation: fadeIn $duration-slower $ease-out-expo both;
+}
+
+.heroBadge {
+  @include flex(row, center, flex-start, $space-2);
+  display:       inline-flex;
+  padding:       $space-2 $space-4;
+  background:    $accent-pale;
+  border:        1px solid rgba($accent, 0.25);
+  border-radius: $radius-full;
+  font-family:   $font-body;
+  font-size:     $text-xs;
+  font-weight:   $weight-semibold;
+  color:         $accent;
+  letter-spacing: 0.02em;
+  margin-bottom: $space-6;
+}
+
+.badgeDot {
+  width:         6px;
+  height:        6px;
+  border-radius: $radius-full;
+  background:    $accent;
+  animation:     pulse 2s infinite;
+  flex-shrink:   0;
+}
+
+.heroTitle {
+  font-family:    $font-display;
+  font-size:      clamp($text-4xl, 6vw, $text-5xl);
+  font-weight:    $weight-medium;
+  color:          $ink;
+  letter-spacing: -0.03em;
+  line-height:    $leading-tight;
+  margin-bottom:  $space-6;
+
+  em {
+    font-style: italic;
+    color:      $accent;
+  }
+}
+
+.heroTitleLine {
+  display:  block;
+  animation: fadeIn $duration-slower $ease-out-expo both;
+}
+
+.heroSub {
+  font-family:  $font-body;
+  font-size:    $text-md;
+  color:        $ink-light;
+  line-height:  $leading-relaxed;
+  max-width:    500px;
+  margin-bottom: $space-8;
+}
+
+.heroActions {
+  @include flex(row, center, flex-start, $space-4);
+  flex-wrap: wrap;
+  margin-bottom: $space-12;
+}
+
+.heroCta {
+  @include flex(row, center, center, $space-2);
+  padding:       $space-4 $space-8;
+  background:    $ink;
+  color:         $surface;
+  text-decoration: none;
+  border-radius: $radius-md;
+  font-family:   $font-body;
+  font-size:     $text-base;
+  font-weight:   $weight-semibold;
+  transition:    all $duration-base $ease-out-expo;
+
+  &:hover {
+    background: $accent;
+    transform:  translateY(-2px);
+    box-shadow: $shadow-lg;
+    color:      $surface;
+  }
+}
+
+.ctaArrow {
+  font-size:  18px;
+  line-height: 1;
+  transition: transform $duration-base $ease-out-expo;
+
+  .heroCta:hover & {
+    transform: translateX(4px);
+  }
+}
+
+.heroSecondary {
+  font-family:   $font-body;
+  font-size:     $text-sm;
+  font-weight:   $weight-medium;
+  color:         $muted;
+  text-decoration: none;
+  border-bottom: 1px solid $border;
+  padding-bottom: 1px;
+  transition:    all $duration-base $ease-in-out;
+
+  &:hover {
+    color:        $ink;
+    border-color: $ink;
+  }
+}
+
+// Stats
+.statsRow {
+  @include flex(row, flex-start, flex-start, $space-8);
+  border-top:  1px solid $border;
+  padding-top: $space-6;
+  flex-wrap:   wrap;
+  gap:         $space-6;
+}
+
+.stat {
+  @include flex(column, flex-start, flex-start, $space-1);
+}
+
+.statNum {
+  font-family:    $font-display;
+  font-size:      $text-2xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    1;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  color:       $muted;
+  font-weight: $weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+// Hero card mock
+.heroCard {
+  background:    $surface;
+  border-radius: $radius-lg;
+  border:        1px solid $border;
+  box-shadow:    $shadow-xl;
+  padding:       $space-5;
+  animation:     slideInRight $duration-slower $ease-out-expo 200ms both;
+  position:      relative;
+  z-index:       1;
+
+  @include mobile { display: none; }
+}
+
+.cardHeader {
+  @include flex(row, center, flex-start, 6px);
+  margin-bottom: $space-4;
+}
+
+.cardDot {
+  width:         8px;
+  height:        8px;
+  border-radius: $radius-full;
+  background:    $border;
+  display:       block;
+
+  &:nth-child(1) { background: #ff5f57; }
+  &:nth-child(2) { background: #febc2e; }
+  &:nth-child(3) { background: #28c840; }
+}
+
+.cardTitle {
+  font-family:   $font-display;
+  font-size:     $text-xl;
+  font-weight:   $weight-semibold;
+  color:         $ink;
+  margin-bottom: $space-1;
+  letter-spacing: -0.02em;
+}
+
+.cardMeta {
+  font-family:   $font-body;
+  font-size:     $text-xs;
+  color:         $muted;
+  font-weight:   $weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: $space-4;
+}
+
+.cardImg {
+  width:         100%;
+  height:        180px;
+  border-radius: $radius-md;
+  background:    linear-gradient(135deg, $accent-pale 0%, darken($accent-pale, 6%) 100%);
+  margin-bottom: $space-4;
+  position:      relative;
+  overflow:      hidden;
+
+  &::before {
+    content:  '';
+    position: absolute;
+    inset:    0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23c9954a' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") center / 60px repeat;
+  }
+
+  &::after {
+    content:   '🏠';
+    position:  absolute;
+    top:       50%;
+    left:      50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    opacity:   0.3;
+  }
+}
+
+.cardText {
+  @include flex(column, stretch, flex-start, $space-2);
+  margin-bottom: $space-4;
+}
+
+.cardLine {
+  height:        10px;
+  background:    $surface-muted;
+  border-radius: $radius-full;
+  display:       block;
+}
+
+.cardTags {
+  @include flex(row, center, flex-start, $space-2);
+  flex-wrap: wrap;
+}
+
+.cardTag {
+  font-family:   $font-body;
+  font-size:     10px;
+  font-weight:   $weight-semibold;
+  color:         $accent;
+  background:    $accent-pale;
+  border-radius: $radius-sm;
+  padding:       3px 8px;
+  letter-spacing: 0.02em;
+}
+
+// ── Features ─────────────────────────────────────────────
+
+.features {
+  background:   $surface;
+  border-top:   1px solid $border;
+  border-bottom: 1px solid $border;
+}
+
+.featureGrid {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   $space-6;
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+    gap: $space-5;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  @include flex(column, flex-start, flex-start, $space-4);
+  padding:       $space-6;
+  background:    $bg;
+  border-radius: $radius-lg;
+  border:        1px solid $border;
+  transition:    all $duration-base $ease-in-out;
+  animation:     fadeIn $duration-slow $ease-out-expo both;
+
+  &:hover {
+    transform:  translateY(-3px);
+    box-shadow: $shadow-md;
+    border-color: $border-strong;
+  }
+}
+
+.featureIconWrap {
+  width:         52px;
+  height:        52px;
+  border-radius: $radius-md;
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.featureEmoji {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.featureTitle {
+  font-family:    $font-body;
+  font-size:      $text-base;
+  font-weight:    $weight-semibold;
+  letter-spacing: -0.01em;
+}
+
+.featureDesc {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       $muted;
+  line-height: $leading-relaxed;
+}
+
+// ── Book Styles ──────────────────────────────────────────
+
+.bookStyles {
+  background: $bg-warm;
+}
+
+.styleGrid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   $space-6;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $space-5;
+  }
+}
+
+.styleCard {
+  @include flex(column, stretch, flex-start, $space-4);
+  background:    $surface;
+  border-radius: $radius-lg;
+  border:        1px solid $border;
+  overflow:      hidden;
+  transition:    all $duration-base $ease-in-out;
+  animation:     fadeIn $duration-slow $ease-out-expo both;
+
+  &:hover {
+    transform:  translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.bookPreview {
+  position:     relative;
+  height:       200px;
+  @include flex(column, center, center, $space-2);
+  padding:      $space-6;
+  overflow:     hidden;
+}
+
+.bookSpine {
+  position: absolute;
+  left:     0;
+  top:      0;
+  bottom:   0;
+  width:    8px;
+  opacity:  0.7;
+}
+
+.bookContent {
+  @include flex(column, center, center, $space-2);
+  text-align: center;
+}
+
+.bookLine {
+  display:    block;
+  text-align: center;
+}
+
+.styleInfo {
+  padding: $space-5 $space-6;
+}
+
+.styleName {
+  font-family:   $font-display;
+  font-size:     $text-xl;
+  font-weight:   $weight-semibold;
+  color:         $ink;
+  letter-spacing: -0.02em;
+  margin-bottom: $space-1;
+}
+
+.styleDesc {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       $muted;
+  line-height: $leading-base;
+}
+
+// ── CTA Section ──────────────────────────────────────────
+
+.cta {
+  position:       relative;
+  overflow:       hidden;
+  padding:        $space-24 $space-8;
+  text-align:     center;
+  background:     $ink;
+}
+
+.ctaBg {
+  position:      absolute;
+  inset:         0;
+  background:    radial-gradient(ellipse 80% 80% at 50% 50%, rgba($accent, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  z-index:  1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family:    $font-display;
+  font-size:      clamp($text-3xl, 5vw, $text-4xl);
+  font-weight:    $weight-medium;
+  color:          $surface;
+  letter-spacing: -0.02em;
+  line-height:    $leading-tight;
+  margin-bottom:  $space-4;
+
+  em {
+    font-style: italic;
+    color:      $accent-light;
+  }
+}
+
+.ctaSub {
+  font-family:   $font-body;
+  font-size:     $text-base;
+  color:         rgba($surface, 0.6);
+  margin-bottom: $space-8;
+  line-height:   $leading-base;
+}
+
+.ctaButton {
+  @include flex(row, center, center, $space-2);
+  display:       inline-flex;
+  padding:       $space-4 $space-10;
+  background:    $accent;
+  color:         $surface;
+  text-decoration: none;
+  border-radius: $radius-md;
+  font-family:   $font-body;
+  font-size:     $text-base;
+  font-weight:   $weight-semibold;
+  transition:    all $duration-base $ease-out-expo;
+
+  &:hover {
+    background: lighten($accent, 8%);
+    transform:  translateY(-2px);
+    box-shadow: 0 8px 30px rgba($accent, 0.4);
+    color:      $surface;
+  }
+}
+
+// ── Footer ───────────────────────────────────────────────
+
+.footer {
+  background:   $ink;
+  border-top:   1px solid rgba($surface, 0.08);
+  padding:      $space-8;
+}
+
+.footerInner {
+  @include flex(column, center, center, $space-2);
+  max-width:   $content-max;
+  margin:      0 auto;
+  text-align:  center;
+}
+
+.footerBrand {
+  @include flex(row, center, center, $space-2);
+}
+
+.footerTagline {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       rgba($surface, 0.35);
+  margin-top:  $space-1;
+}

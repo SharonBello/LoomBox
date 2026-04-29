@@ -1,0 +1,142 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex(column, stretch, flex-start, $space-8);
+  animation: fadeIn $duration-slow $ease-out-expo both;
+}
+
+.header {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $weight-medium;
+  color: $ink;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: $muted;
+  margin-top: $space-1;
+}
+
+.newBtn {
+  @include flex(row, center, center, $space-2);
+  padding: $space-3 $space-5;
+  background: $ink;
+  color: $surface;
+  text-decoration: none;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  transition: all $duration-base $ease-in-out;
+
+  &:hover { background: $accent; color: $surface; transform: translateY(-1px); box-shadow: $shadow-md; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @include mobile { grid-template-columns: 1fr; }
+  @include tablet { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+  @include flex(column, stretch, flex-start, 0);
+  background: $surface;
+  border: 1.5px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  position: relative;
+
+  &:hover { transform: translateY(-3px); box-shadow: $shadow-lg; border-color: $border-strong; }
+}
+
+.cardImg { width: 100%; height: 160px; object-fit: cover; }
+
+.cardImgPlaceholder {
+  width: 100%; height: 160px;
+  background: linear-gradient(135deg, $accent-pale, darken($accent-pale, 5%));
+  @include flex-center;
+  font-size: 36px; color: rgba($accent, 0.4);
+}
+
+.cardBody {
+  @include flex(column, flex-start, flex-start, $space-2);
+  padding: $space-5;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: $font-display; font-size: $text-lg; font-weight: $weight-semibold;
+  color: $ink; letter-spacing: -0.02em; @include truncate(2);
+}
+
+.cardMeta {
+  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
+  color: $accent; text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+.cardPreview {
+  font-family: $font-body; font-size: $text-sm; color: $muted;
+  line-height: $leading-base; @include truncate(3);
+}
+
+.cardActions {
+  @include flex(row, center, flex-end, $space-1);
+  padding: $space-2 $space-3;
+  border-top: 1px solid $border;
+  background: $surface-muted;
+}
+
+.newCard {
+  @include flex(column, center, center, $space-3);
+  min-height: 240px;
+  border: 2px dashed $border-strong;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  color: $muted;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  transition: all $duration-base $ease-in-out;
+
+  span:first-child { font-size: 32px; line-height: 1; }
+
+  &:hover { border-color: $accent; color: $accent; background: $accent-pale; }
+}
+
+.empty {
+  @include flex(column, center, center, $space-4);
+  border: 2px dashed $border;
+  border-radius: $radius-xl;
+  padding: $space-16 $space-8;
+  text-align: center;
+
+  h3 { font-family: $font-display; font-size: $text-2xl; color: $ink; letter-spacing: -0.02em; }
+  p  { font-family: $font-body; font-size: $text-sm; color: $muted; }
+}
+
+.emptyIcon { font-size: 48px; color: $accent; }
+
+.emptyBtn {
+  padding: $space-3 $space-6;
+  background: $ink; color: $surface;
+  text-decoration: none; border-radius: $radius-md;
+  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
+  transition: all $duration-base $ease-in-out; margin-top: $space-2;
+
+  &:hover { background: $accent; color: $surface; }
+}

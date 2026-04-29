@@ -1,0 +1,457 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex(column, stretch, flex-start, $space-10);
+  padding-bottom: $space-16;
+  animation: fadeIn $duration-slow $ease-out-expo both;
+}
+
+// ── Greeting ──────────────────────────────────────────────
+
+.greeting {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.greetingTime {
+  font-family:    $font-body;
+  font-size:      $text-sm;
+  color:          $accent;
+  font-weight:    $weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom:  $space-2;
+}
+
+.greetingTitle {
+  font-family:    $font-display;
+  font-size:      clamp($text-2xl, 3vw, $text-3xl);
+  font-weight:    $weight-medium;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    $leading-tight;
+}
+
+.newStoryBtn {
+  @include flex(row, center, center, $space-2);
+  padding:        $space-3 $space-5;
+  background:     $ink;
+  color:          $surface;
+  text-decoration: none;
+  border-radius:  $radius-md;
+  font-family:    $font-body;
+  font-size:      $text-sm;
+  font-weight:    $weight-semibold;
+  transition:     all $duration-base $ease-in-out;
+  white-space:    nowrap;
+
+  &:hover {
+    background: $accent;
+    transform:  translateY(-1px);
+    box-shadow: $shadow-md;
+    color:      $surface;
+  }
+}
+
+// ── Progress card ─────────────────────────────────────────
+
+.progressSection { }
+
+.progressCard {
+  @include flex(column, stretch, flex-start, $space-5);
+  background:    $surface;
+  border-radius: $radius-lg;
+  border:        1px solid $border;
+  padding:       $space-6;
+  box-shadow:    $shadow-sm;
+}
+
+.progressHeader {
+  @include flex-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+}
+
+.progressTitle {
+  font-family:    $font-display;
+  font-size:      $text-xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  margin-bottom:  $space-1;
+}
+
+.progressSub {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       $muted;
+}
+
+.viewBookBtn {
+  @include flex(row, center, center, $space-2);
+  padding:        $space-2 $space-4;
+  border:         1.5px solid $border;
+  border-radius:  $radius-md;
+  font-family:    $font-body;
+  font-size:      $text-sm;
+  font-weight:    $weight-semibold;
+  color:          $ink-light;
+  text-decoration: none;
+  transition:     all $duration-base $ease-in-out;
+  white-space:    nowrap;
+
+  &:hover {
+    border-color: $accent;
+    color:        $accent;
+    background:   $accent-pale;
+  }
+}
+
+.progressStats {
+  @include flex(row, center, flex-start, $space-4);
+  flex-wrap: wrap;
+  padding-top: $space-2;
+  border-top: 1px solid $border;
+  gap: $space-4;
+}
+
+.statPill {
+  @include flex(row, center, flex-start, $space-2);
+}
+
+.statIcon { font-size: 16px; }
+
+.statValue {
+  font-family:    $font-display;
+  font-size:      $text-xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    1;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  color:       $muted;
+  font-weight: $weight-medium;
+}
+
+// ── Section title ─────────────────────────────────────────
+
+.sectionTitle {
+  font-family:    $font-display;
+  font-size:      $text-xl;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+}
+
+// ── Quick actions ─────────────────────────────────────────
+
+.quickSection {
+  @include flex(column, stretch, flex-start, $space-5);
+}
+
+.quickGrid {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   $space-4;
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.quickCard {
+  @include flex(row, center, flex-start, $space-4);
+  @include focus-ring;
+  padding:        $space-4 $space-5;
+  background:     $surface;
+  border:         1.5px solid $border;
+  border-radius:  $radius-lg;
+  text-decoration: none;
+  transition:     all $duration-base $ease-in-out;
+  cursor:         pointer;
+
+  &:hover {
+    transform:    translateY(-2px);
+    box-shadow:   $shadow-md;
+    border-color: $border-strong;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+  }
+}
+
+.quickIcon {
+  width:         44px;
+  height:        44px;
+  border-radius: $radius-md;
+  @include flex-center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.quickText {
+  @include flex(column, flex-start, flex-start, $space-1);
+  flex: 1;
+}
+
+.quickLabel {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  font-weight: $weight-semibold;
+  line-height: 1;
+}
+
+.quickDesc {
+  font-family: $font-body;
+  font-size:   $text-xs;
+  color:       $muted;
+  line-height: 1.4;
+
+  @include mobile { display: none; }
+}
+
+.quickArrow {
+  font-size:  16px;
+  color:      $border-strong;
+  margin-inline-start: auto;
+  transition: transform $duration-base $ease-out-expo;
+
+  .quickCard:hover & {
+    transform: translateX(4px);
+  }
+
+  @include mobile { display: none; }
+}
+
+// ── Stories section ───────────────────────────────────────
+
+.storiesSection {
+  @include flex(column, stretch, flex-start, $space-5);
+}
+
+.storiesHeader {
+  @include flex-between;
+}
+
+.viewAll {
+  font-family:    $font-body;
+  font-size:      $text-sm;
+  font-weight:    $weight-semibold;
+  color:          $accent;
+  text-decoration: none;
+  transition:     color $duration-fast $ease-in-out;
+
+  &:hover { color: darken($accent, 10%); }
+}
+
+.storyGrid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   $space-5;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// ── Story card ────────────────────────────────────────────
+
+.storyCard {
+  @include button-reset;
+  @include focus-ring;
+  @include flex(column, stretch, flex-start, 0);
+  background:    $surface;
+  border:        1.5px solid $border;
+  border-radius: $radius-lg;
+  overflow:      hidden;
+  text-decoration: none;
+  text-align:    start;
+  cursor:        pointer;
+  transition:    all $duration-base $ease-in-out;
+  position:      relative;
+
+  &:hover {
+    transform:  translateY(-3px);
+    box-shadow: $shadow-lg;
+    border-color: $border-strong;
+  }
+}
+
+.storyImg {
+  width:       100%;
+  height:      160px;
+  object-fit:  cover;
+  display:     block;
+}
+
+.storyImgPlaceholder {
+  width:      100%;
+  height:     160px;
+  background: linear-gradient(135deg, $accent-pale, darken($accent-pale, 5%));
+  @include flex-center;
+  font-size:  36px;
+  color:      rgba($accent, 0.4);
+}
+
+.storyBody {
+  @include flex(column, flex-start, flex-start, $space-2);
+  padding: $space-5;
+  flex: 1;
+}
+
+.storyTitle {
+  font-family:    $font-display;
+  font-size:      $text-lg;
+  font-weight:    $weight-semibold;
+  color:          $ink;
+  letter-spacing: -0.02em;
+  line-height:    $leading-snug;
+  @include truncate(2);
+}
+
+.storyMeta {
+  font-family:    $font-body;
+  font-size:      $text-xs;
+  font-weight:    $weight-semibold;
+  color:          $accent;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.storyPreview {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       $muted;
+  line-height: $leading-base;
+  @include truncate(3);
+}
+
+.inBookBadge {
+  position:      absolute;
+  top:           $space-3;
+  right:         $space-3;
+  font-family:   $font-body;
+  font-size:     10px;
+  font-weight:   $weight-semibold;
+  color:         $accent;
+  background:    rgba($surface, 0.95);
+  border:        1px solid rgba($accent, 0.3);
+  border-radius: $radius-full;
+  padding:       2px 8px;
+  letter-spacing: 0.04em;
+}
+
+// ── New story card ────────────────────────────────────────
+
+.newCard {
+  border-style: dashed;
+  border-color: $border-strong;
+  min-height:   200px;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $accent;
+    background:   $accent-pale;
+  }
+}
+
+.newCardInner {
+  @include flex(column, center, center, $space-3);
+  width:   100%;
+  height:  100%;
+  flex:    1;
+  padding: $space-8;
+}
+
+.newCardIcon {
+  width:         48px;
+  height:        48px;
+  border-radius: $radius-full;
+  border:        2px dashed $border-strong;
+  @include flex-center;
+  font-size:     24px;
+  color:         $muted;
+  transition:    all $duration-base $ease-in-out;
+
+  .newCard:hover & {
+    border-color: $accent;
+    color:        $accent;
+    background:   rgba($accent, 0.08);
+  }
+}
+
+.newCardLabel {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  font-weight: $weight-semibold;
+  color:       $muted;
+  transition:  color $duration-base $ease-in-out;
+
+  .newCard:hover & { color: $accent; }
+}
+
+// ── Empty state ───────────────────────────────────────────
+
+.emptyState {
+  @include flex(column, center, center, $space-4);
+  background:    $surface;
+  border:        2px dashed $border;
+  border-radius: $radius-xl;
+  padding:       $space-16 $space-8;
+  text-align:    center;
+}
+
+.emptyIcon {
+  font-size:  48px;
+  color:      $accent;
+  animation:  pulse 3s infinite;
+}
+
+.emptyTitle {
+  font-family:    $font-display;
+  font-size:      $text-2xl;
+  font-weight:    $weight-medium;
+  color:          $ink;
+  letter-spacing: -0.02em;
+}
+
+.emptySub {
+  font-family: $font-body;
+  font-size:   $text-sm;
+  color:       $muted;
+  line-height: $leading-base;
+  max-width:   360px;
+}
+
+.emptyBtn {
+  padding:        $space-3 $space-6;
+  background:     $ink;
+  color:          $surface;
+  text-decoration: none;
+  border-radius:  $radius-md;
+  font-family:    $font-body;
+  font-size:      $text-sm;
+  font-weight:    $weight-semibold;
+  transition:     all $duration-base $ease-in-out;
+  margin-top:     $space-2;
+
+  &:hover {
+    background: $accent;
+    color:      $surface;
+    transform:  translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
