@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { CircularProgress, Tooltip } from '@mui/material'
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -10,6 +10,7 @@ import type { Story } from '@/types'
 import styles from './StoryPage.module.scss'
 
 const StoryPage = () => {
+  const { t }    = useTranslation()
   const { id }   = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [story, setStory]     = useState<Story | null>(null)
@@ -27,7 +28,7 @@ const StoryPage = () => {
   }
 
   const handleDelete = async () => {
-    if (!story || !confirm('Delete this story? This cannot be undone.')) return
+    if (!story || !confirm(t('story.deleteConfirm'))) return
     await storyService.delete(story.id)
     navigate('/stories', { replace: true })
   }
@@ -38,8 +39,8 @@ const StoryPage = () => {
 
   if (!story) return (
     <div className={styles.notFound}>
-      <h2>Story not found</h2>
-      <Link to="/stories">← Back to stories</Link>
+      <h2>{t('stories.notFound')}</h2>
+      <Link to="/stories">{t('stories.backToStories')}</Link>
     </div>
   )
 
@@ -49,19 +50,19 @@ const StoryPage = () => {
     <div className={styles.page}>
       <div className={styles.toolbar}>
         <Link to="/stories" className={styles.backBtn}>
-          <ArrowBackIcon fontSize="small" /> Stories
+          <ArrowBackIcon fontSize="small" /> {t('stories.title')}
         </Link>
         <div className={styles.toolbarActions}>
-          <Tooltip title={story.isInBook ? 'Remove from book' : 'Add to book'}>
+          <Tooltip title={story.isInBook ? t('story.removeFromBook') : t('story.addToBook')}>
             <button
               className={`${styles.actionBtn} ${story.isInBook ? styles.inBook : ''}`}
               onClick={handleToggleBook}
             >
               <MenuBookOutlinedIcon fontSize="small" />
-              {story.isInBook ? 'In book' : 'Add to book'}
+              {story.isInBook ? t('story.inBook') : t('story.addToBook')}
             </button>
           </Tooltip>
-          <Tooltip title="Delete story">
+          <Tooltip title={t('story.delete')}>
             <button className={`${styles.actionBtn} ${styles.deleteBtn}`} onClick={handleDelete}>
               <DeleteOutlineIcon fontSize="small" />
             </button>
@@ -81,7 +82,7 @@ const StoryPage = () => {
 
           {story.historicalContext && (
             <div className={styles.context}>
-              <span className={styles.contextLabel}>✦ Historical context</span>
+              <span className={styles.contextLabel}>✦ {t('story.historicalContext')}</span>
               <p>{story.historicalContext}</p>
             </div>
           )}

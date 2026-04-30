@@ -27,6 +27,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        api: 'modern-compiler' as const,
         additionalData: `@use "@/styles/tokens" as *;`,
       },
     },

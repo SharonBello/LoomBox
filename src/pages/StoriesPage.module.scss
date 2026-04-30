@@ -1,5 +1,5 @@
-@use '@/styles/tokens' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
 
 .page {
   @include flex(column, stretch, flex-start, $space-8);
@@ -39,7 +39,12 @@
   font-weight: $weight-semibold;
   transition: all $duration-base $ease-in-out;
 
-  &:hover { background: $accent; color: $surface; transform: translateY(-1px); box-shadow: $shadow-md; }
+  &:hover {
+    background: $accent;
+    color: $surface;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
 }
 
 .grid {
@@ -47,8 +52,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: $space-5;
 
-  @include mobile { grid-template-columns: 1fr; }
-  @include tablet { grid-template-columns: 1fr 1fr; }
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .card {
@@ -61,16 +70,26 @@
   transition: all $duration-base $ease-in-out;
   position: relative;
 
-  &:hover { transform: translateY(-3px); box-shadow: $shadow-lg; border-color: $border-strong; }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+    border-color: $border-strong;
+  }
 }
 
-.cardImg { width: 100%; height: 160px; object-fit: cover; }
+.cardImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
 
 .cardImgPlaceholder {
-  width: 100%; height: 160px;
-  background: linear-gradient(135deg, $accent-pale, darken($accent-pale, 5%));
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, $accent-pale, $accent-pale-dark);
   @include flex-center;
-  font-size: 36px; color: rgba($accent, 0.4);
+  font-size: 36px;
+  color: rgba($accent, 0.4);
 }
 
 .cardBody {
@@ -80,18 +99,29 @@
 }
 
 .cardTitle {
-  font-family: $font-display; font-size: $text-lg; font-weight: $weight-semibold;
-  color: $ink; letter-spacing: -0.02em; @include truncate(2);
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-semibold;
+  color: $ink;
+  letter-spacing: -0.02em;
+  @include truncate(2);
 }
 
 .cardMeta {
-  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
-  color: $accent; text-transform: uppercase; letter-spacing: 0.06em;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $accent;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .cardPreview {
-  font-family: $font-body; font-size: $text-sm; color: $muted;
-  line-height: $leading-base; @include truncate(3);
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: $muted;
+  line-height: $leading-base;
+  @include truncate(3);
 }
 
 .cardActions {
@@ -113,9 +143,16 @@
   font-weight: $weight-semibold;
   transition: all $duration-base $ease-in-out;
 
-  span:first-child { font-size: 32px; line-height: 1; }
+  span:first-child {
+    font-size: 32px;
+    line-height: 1;
+  }
 
-  &:hover { border-color: $accent; color: $accent; background: $accent-pale; }
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+    background: $accent-pale;
+  }
 }
 
 .empty {
@@ -125,18 +162,38 @@
   padding: $space-16 $space-8;
   text-align: center;
 
-  h3 { font-family: $font-display; font-size: $text-2xl; color: $ink; letter-spacing: -0.02em; }
-  p  { font-family: $font-body; font-size: $text-sm; color: $muted; }
+  h3 {
+    font-family: $font-display;
+    font-size: $text-2xl;
+    color: $ink;
+    letter-spacing: -0.02em;
+  }
+  p {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $muted;
+  }
 }
 
-.emptyIcon { font-size: 48px; color: $accent; }
+.emptyIcon {
+  font-size: 48px;
+  color: $accent;
+}
 
 .emptyBtn {
   padding: $space-3 $space-6;
-  background: $ink; color: $surface;
-  text-decoration: none; border-radius: $radius-md;
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
-  transition: all $duration-base $ease-in-out; margin-top: $space-2;
+  background: $ink;
+  color: $surface;
+  text-decoration: none;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  transition: all $duration-base $ease-in-out;
+  margin-top: $space-2;
 
-  &:hover { background: $accent; color: $surface; }
+  &:hover {
+    background: $accent;
+    color: $surface;
+  }
 }

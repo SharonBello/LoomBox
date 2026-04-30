@@ -1,0 +1,222 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex(column, stretch, flex-start, $space-8);
+  animation: fadeIn $duration-slow $ease-out-expo both;
+  padding-bottom: $space-16;
+}
+
+.header { @include flex-between; flex-wrap: wrap; gap: $space-4; }
+
+.title {
+  font-family: $font-display; font-size: $text-3xl; font-weight: $weight-medium;
+  color: $ink; letter-spacing: -0.02em;
+}
+
+.sub { font-family: $font-body; font-size: $text-sm; color: $muted; margin-top: $space-1; }
+
+.addBtn {
+  @include flex(row, center, center, $space-2); @include button-reset; @include focus-ring;
+  padding: $space-3 $space-5; background: $ink; color: $surface;
+  border-radius: $radius-md; font-family: $font-body; font-size: $text-sm;
+  font-weight: $weight-semibold; cursor: pointer; white-space: nowrap;
+  transition: all $duration-base $ease-in-out;
+  &:hover { background: $accent; transform: translateY(-1px); box-shadow: $shadow-md; }
+}
+
+.loader { @include flex-center; min-height: 40vh; }
+
+.empty {
+  @include flex(column, center, center, $space-4);
+  border: 2px dashed $border; border-radius: $radius-xl;
+  padding: $space-16 $space-8; text-align: center;
+}
+.emptyIcon { font-size: 56px; }
+.emptyTitle { font-family: $font-display; font-size: $text-2xl; font-weight: $weight-medium; color: $ink; letter-spacing: -0.02em; }
+.emptySub { font-family: $font-body; font-size: $text-sm; color: $muted; max-width: 340px; line-height: $leading-base; }
+
+// ── Layout ───────────────────────────────────────────────
+
+.layout {
+  display: grid; grid-template-columns: 1fr 340px; gap: $space-6; align-items: flex-start;
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+// ── Recipe grid ──────────────────────────────────────────
+
+.recipeGrid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: $space-4;
+}
+
+.recipeCard {
+  @include flex(column, stretch, flex-start, 0);
+  background: $surface; border: 1.5px solid $border; border-radius: $radius-lg;
+  overflow: hidden; cursor: pointer; position: relative;
+  transition: all $duration-base $ease-in-out;
+  &:hover { border-color: $accent; transform: translateY(-2px); box-shadow: $shadow-md; }
+}
+
+.recipeCardSelected { border-color: $accent; box-shadow: 0 0 0 3px rgba($accent, 0.15), $shadow-md; }
+
+.recipeImg { width: 100%; height: 150px; object-fit: cover; display: block; }
+
+.recipeImgPlaceholder {
+  width: 100%; height: 150px; background: linear-gradient(135deg, $accent-pale, $accent-pale-dark);
+  @include flex-center; font-size: 40px;
+}
+
+.recipeBody {
+  @include flex(column, flex-start, flex-start, $space-1);
+  padding: $space-4; flex: 1;
+}
+
+.recipeName {
+  font-family: $font-display; font-size: $text-lg; font-weight: $weight-semibold;
+  color: $ink; letter-spacing: -0.02em; @include truncate(2);
+}
+
+.recipeFrom {
+  font-family: $font-body; font-size: $text-xs; color: $accent; font-weight: $weight-semibold;
+}
+
+.recipeOccasion {
+  font-family: $font-body; font-size: $text-xs; color: $muted; font-weight: $weight-medium;
+}
+
+.recipePreview {
+  font-family: $font-body; font-size: $text-sm; color: $muted;
+  line-height: $leading-base; @include truncate(2); margin-top: $space-2;
+}
+
+.recipeActions {
+  @include flex(row, center, flex-end, $space-1);
+  padding: $space-2 $space-3; border-top: 1px solid $border; background: $surface-muted;
+}
+
+.inBookBadge {
+  font-family: $font-body; font-size: 10px; font-weight: $weight-semibold;
+  color: $accent; background: rgba($surface, 0.95);
+  border: 1px solid rgba($accent, 0.3); border-radius: $radius-full;
+  padding: 2px 8px; margin-inline-start: $space-2;
+}
+
+.addCard {
+  @include button-reset; @include flex(column, center, center, $space-2); @include focus-ring;
+  min-height: 200px; border: 2px dashed $border-strong; border-radius: $radius-lg;
+  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
+  color: $muted; cursor: pointer; transition: all $duration-base $ease-in-out; width: 100%;
+  &:hover { border-color: $accent; color: $accent; background: $accent-pale; }
+}
+
+// ── Detail panel ─────────────────────────────────────────
+
+.detailPanel {
+  background: $surface; border: 1px solid $border; border-radius: $radius-lg; padding: $space-6;
+  position: sticky; top: calc($navbar-height + $space-6);
+  animation: slideInRight $duration-slow $ease-out-expo both;
+  @include custom-scrollbar; max-height: calc(100vh - $navbar-height - $space-12); overflow-y: auto;
+}
+
+.detailHeader { @include flex-between; margin-bottom: $space-4; }
+
+.detailName {
+  font-family: $font-display; font-size: $text-2xl; font-weight: $weight-medium;
+  color: $ink; letter-spacing: -0.02em;
+}
+
+.detailPhoto {
+  width: 100%; height: 200px; object-fit: cover; border-radius: $radius-md; margin-bottom: $space-5;
+}
+
+.detailMeta { @include flex(column, flex-start, flex-start, $space-1); margin-bottom: $space-4; }
+
+.detailLabel {
+  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
+  color: $muted; text-transform: uppercase; letter-spacing: 0.07em;
+}
+
+.detailValue {
+  font-family: $font-body; font-size: $text-sm; color: $ink-light; line-height: $leading-base;
+}
+
+.detailStory {
+  @include flex(column, flex-start, flex-start, $space-2);
+  padding: $space-4; background: $accent-pale; border-radius: $radius-md;
+  border-inline-start: 3px solid $accent; margin-bottom: $space-4;
+}
+
+.detailStoryText {
+  font-family: $font-body; font-size: $text-sm; color: $ink-light;
+  line-height: $leading-relaxed; font-style: italic;
+}
+
+.detailSection { @include flex(column, flex-start, flex-start, $space-2); margin-bottom: $space-5; }
+
+.detailPre {
+  font-family: $font-body; font-size: $text-sm; color: $ink-light;
+  line-height: $leading-relaxed; white-space: pre-wrap; word-break: break-word;
+  background: $surface-muted; border-radius: $radius-md; padding: $space-3;
+}
+
+// ── Dialog extras ────────────────────────────────────────
+
+.storySection { @include flex(column, stretch, flex-start, $space-2); }
+
+.storySectionHeader { @include flex-between; }
+
+.aiStoryBtn {
+  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
+  padding: $space-1 $space-3; background: $accent-pale; border: 1px solid rgba($accent, 0.3);
+  border-radius: $radius-full; font-family: $font-body; font-size: $text-xs;
+  font-weight: $weight-semibold; color: $accent; cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover:not(:disabled) { background: rgba($accent, 0.15); }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.photoSection { @include flex(column, flex-start, flex-start, $space-3); }
+
+.uploadBtn {
+  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
+  padding: $space-2 $space-4; background: $surface; border: 1.5px solid $border;
+  border-radius: $radius-md; font-family: $font-body; font-size: $text-sm;
+  font-weight: $weight-semibold; color: $ink-light; cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover { border-color: $accent; color: $accent; background: $accent-pale; }
+}
+
+.photoRow { @include flex(row, center, flex-start, $space-3); flex-wrap: wrap; }
+
+.photoThumb {
+  position: relative; width: 72px; height: 72px; border-radius: $radius-md; overflow: hidden;
+  border: 1px solid $border;
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+.removePhoto {
+  @include button-reset;
+  position: absolute; top: 2px; right: 2px;
+  width: 18px; height: 18px; border-radius: $radius-full;
+  background: rgba(0,0,0,0.6); color: white;
+  font-size: 12px; @include flex-center; cursor: pointer;
+  line-height: 1;
+  &:hover { background: #e05c5c; }
+}
+
+.cancelBtn {
+  @include button-reset; @include focus-ring;
+  padding: $space-2 $space-5; border: 1.5px solid $border; border-radius: $radius-md;
+  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
+  color: $muted; cursor: pointer; transition: all $duration-base $ease-in-out;
+  &:hover { border-color: $border-strong; color: $ink; }
+}
+
+.saveBtn {
+  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
+  padding: $space-2 $space-6; background: $ink; color: $surface;
+  border-radius: $radius-md; font-family: $font-body; font-size: $text-sm;
+  font-weight: $weight-semibold; cursor: pointer; transition: all $duration-base $ease-in-out;
+  &:hover:not(:disabled) { background: $accent; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}

@@ -1,11 +1,11 @@
-@use '@/styles/tokens' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
 
 // ── Editor container ──────────────────────────────────────
 
 .editor {
   max-width: $content-reading-max;
-  margin:    0 auto;
+  margin: 0 auto;
   animation: fadeIn $duration-slow $ease-out-expo both;
 }
 
@@ -13,36 +13,38 @@
 
 .progress {
   @include flex(row, center, flex-start, 0);
-  position:   relative;
+  position: relative;
   margin-bottom: $space-10;
-  padding:    $space-5 $space-6;
+  padding: $space-5 $space-6;
   background: $surface;
-  border:     1px solid $border;
+  border: 1px solid $border;
   border-radius: $radius-lg;
-  overflow:   hidden;
+  overflow: hidden;
 }
 
 .progressBar {
-  position:      absolute;
-  bottom:        0;
-  left:          0;
-  height:        3px;
-  background:    $accent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: $accent;
   border-radius: $radius-full;
-  transition:    width $duration-slow $ease-out-expo;
+  transition: width $duration-slow $ease-out-expo;
 }
 
 .progressStep {
   @include button-reset;
   @include flex(row, center, flex-start, $space-3);
   @include focus-ring;
-  flex:       1;
-  padding:    $space-1 0;
-  cursor:     pointer;
-  opacity:    0.4;
+  flex: 1;
+  padding: $space-1 0;
+  cursor: pointer;
+  opacity: 0.4;
   transition: opacity $duration-base $ease-in-out;
 
-  &:disabled { cursor: default; }
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .progressActive {
@@ -55,42 +57,46 @@
 }
 
 .progressDot {
-  width:         28px;
-  height:        28px;
+  width: 28px;
+  height: 28px;
   border-radius: $radius-full;
-  border:        2px solid $border;
-  background:    $surface;
+  border: 2px solid $border;
+  background: $surface;
   @include flex-center;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-semibold;
-  color:         $muted;
-  flex-shrink:   0;
-  transition:    all $duration-base $ease-in-out;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $muted;
+  flex-shrink: 0;
+  transition: all $duration-base $ease-in-out;
 
   .progressActive & {
     border-color: $accent;
-    background:   $accent;
-    color:        $surface;
+    background: $accent;
+    color: $surface;
   }
 
   .progressDone & {
     border-color: $success;
-    background:   $success;
-    color:        $surface;
+    background: $success;
+    color: $surface;
   }
 }
 
 .progressLabel {
-  font-family:  $font-body;
-  font-size:    $text-xs;
-  font-weight:  $weight-semibold;
-  color:        $muted;
-  white-space:  nowrap;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $muted;
+  white-space: nowrap;
 
-  .progressActive & { color: $ink; }
+  .progressActive & {
+    color: $ink;
+  }
 
-  @include mobile { display: none; }
+  @include mobile {
+    display: none;
+  }
 }
 
 // ── Step ─────────────────────────────────────────────────
@@ -98,33 +104,36 @@
 .step {
   @include flex(column, stretch, flex-start, $space-6);
   background: $surface;
-  border:     1px solid $border;
+  border: 1px solid $border;
   border-radius: $radius-lg;
-  padding:    $space-8;
+  padding: $space-8;
 
-  @include mobile { padding: $space-5; gap: $space-5; }
+  @include mobile {
+    padding: $space-5;
+    gap: $space-5;
+  }
 }
 
 .stepHeader {
   @include flex(column, flex-start, flex-start, $space-2);
   padding-bottom: $space-6;
-  border-bottom:  1px solid $border;
+  border-bottom: 1px solid $border;
 }
 
 .stepTitle {
-  font-family:    $font-display;
-  font-size:      $text-2xl;
-  font-weight:    $weight-semibold;
-  color:          $ink;
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $weight-semibold;
+  color: $ink;
   letter-spacing: -0.02em;
 }
 
 .stepSub {
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       $muted;
+  font-size: $text-sm;
+  color: $muted;
   line-height: $leading-base;
-  max-width:   560px;
+  max-width: 560px;
 }
 
 // ── Fields ────────────────────────────────────────────────
@@ -138,7 +147,9 @@
   grid-template-columns: 1fr 1fr;
   gap: $space-5;
 
-  @include mobile { grid-template-columns: 1fr; }
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .fieldGroup {
@@ -146,20 +157,20 @@
 }
 
 .fieldLabel {
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  font-weight:   $weight-semibold;
-  color:         $ink;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
 }
 
 // ── Context block ─────────────────────────────────────────
 
 .contextBlock {
   @include flex(column, flex-start, flex-start, $space-3);
-  background:    $accent-pale;
-  border:        1px solid rgba($accent, 0.2);
+  background: $accent-pale;
+  border: 1px solid rgba($accent, 0.2);
   border-radius: $radius-md;
-  padding:       $space-4 $space-5;
+  padding: $space-4 $space-5;
 }
 
 .contextHeader {
@@ -169,9 +180,9 @@
 
 .contextLabel {
   font-family: $font-body;
-  font-size:   $text-xs;
+  font-size: $text-xs;
   font-weight: $weight-semibold;
-  color:       $accent;
+  color: $accent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -180,25 +191,30 @@
   @include button-reset;
   @include flex(row, center, center, $space-2);
   font-family: $font-body;
-  font-size:   $text-xs;
+  font-size: $text-xs;
   font-weight: $weight-semibold;
-  color:       $accent;
-  cursor:      pointer;
-  padding:     $space-1 $space-3;
-  border:      1px solid rgba($accent, 0.3);
+  color: $accent;
+  cursor: pointer;
+  padding: $space-1 $space-3;
+  border: 1px solid rgba($accent, 0.3);
   border-radius: $radius-full;
-  transition:  all $duration-base $ease-in-out;
+  transition: all $duration-base $ease-in-out;
 
-  &:hover:not(:disabled) { background: rgba($accent, 0.1); }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: rgba($accent, 0.1);
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .contextText {
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       $ink-light;
+  font-size: $text-sm;
+  color: $ink-light;
   line-height: $leading-relaxed;
-  font-style:  italic;
+  font-style: italic;
 }
 
 // ── Prompts ───────────────────────────────────────────────
@@ -211,34 +227,40 @@
   @include button-reset;
   @include flex(row, center, center, $space-2);
   @include focus-ring;
-  padding:       $space-2 $space-4;
-  background:    $surface-muted;
-  border:        1px solid $border;
+  padding: $space-2 $space-4;
+  background: $surface-muted;
+  border: 1px solid $border;
   border-radius: $radius-full;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-semibold;
-  color:         $ink-light;
-  cursor:        pointer;
-  transition:    all $duration-base $ease-in-out;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $ink-light;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
 
-  &:hover:not(:disabled) { border-color: $accent; color: $accent; background: $accent-pale; }
-  &:disabled { opacity: 0.6; }
+  &:hover:not(:disabled) {
+    border-color: $accent;
+    color: $accent;
+    background: $accent-pale;
+  }
+  &:disabled {
+    opacity: 0.6;
+  }
 }
 
 .promptsGrid {
   @include flex(column, stretch, flex-start, $space-2);
-  background:    $surface-muted;
-  border:        1px solid $border;
+  background: $surface-muted;
+  border: 1px solid $border;
   border-radius: $radius-md;
-  padding:       $space-4;
+  padding: $space-4;
 }
 
 .promptsHeader {
   @include flex-between;
   font-family: $font-body;
-  font-size:   $text-xs;
-  color:       $muted;
+  font-size: $text-xs;
+  color: $muted;
   margin-bottom: $space-2;
 }
 
@@ -246,74 +268,84 @@
   @include button-reset;
   color: $muted;
   cursor: pointer;
-  &:hover { color: $ink; }
+  &:hover {
+    color: $ink;
+  }
 }
 
 .promptChip {
   @include button-reset;
   @include focus-ring;
-  padding:       $space-3 $space-4;
-  border:        1px solid $border;
+  padding: $space-3 $space-4;
+  border: 1px solid $border;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  color:         $ink-light;
-  text-align:    start;
-  background:    $surface;
-  cursor:        pointer;
-  transition:    all $duration-base $ease-in-out;
-  line-height:   $leading-snug;
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: $ink-light;
+  text-align: start;
+  background: $surface;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  line-height: $leading-snug;
 
   &:hover {
     border-color: $accent;
-    background:   $accent-pale;
-    color:        $ink;
-    transform:    translateX(4px);
+    background: $accent-pale;
+    color: $ink;
+    transform: translateX(4px);
   }
 }
 
 // Category colours
-.cat_memory   { border-inline-start: 3px solid $accent; }
-.cat_emotion  { border-inline-start: 3px solid #7c6fe0; }
-.cat_detail   { border-inline-start: 3px solid $success; }
-.cat_context  { border-inline-start: 3px solid #e8a04a; }
+.cat_memory {
+  border-inline-start: 3px solid $accent;
+}
+.cat_emotion {
+  border-inline-start: 3px solid #7c6fe0;
+}
+.cat_detail {
+  border-inline-start: 3px solid $success;
+}
+.cat_context {
+  border-inline-start: 3px solid #e8a04a;
+}
 
 // ── Textarea ──────────────────────────────────────────────
 
 .textarea {
   @include custom-scrollbar;
-  width:         100%;
-  padding:       $space-5;
-  background:    $bg;
-  border:        1.5px solid $border;
+  width: 100%;
+  padding: $space-5;
+  background: $bg;
+  border: 1.5px solid $border;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-md;
-  line-height:   $leading-relaxed;
-  color:         $ink;
-  resize:        vertical;
-  min-height:    280px;
-  transition:    border-color $duration-fast $ease-in-out;
-  outline:       none;
+  font-family: $font-body;
+  font-size: $text-md;
+  line-height: $leading-relaxed;
+  color: $ink;
+  resize: vertical;
+  min-height: 280px;
+  transition: border-color $duration-fast $ease-in-out;
+  outline: none;
 
   &:focus {
     border-color: $accent;
-    background:   $surface;
+    background: $surface;
   }
 
   &::placeholder {
-    color:       $muted;
-    font-style:  italic;
+    color: $muted;
+    font-style: italic;
     line-height: $leading-relaxed;
   }
 }
 
 .wordCount {
   font-family: $font-body;
-  font-size:   $text-xs;
-  color:       $muted;
-  text-align:  end;
-  margin-top:  -$space-4;
+  font-size: $text-xs;
+  color: $muted;
+  text-align: end;
+  margin-top: -$space-4;
 }
 
 // ── Title row ─────────────────────────────────────────────
@@ -321,28 +353,35 @@
 .titleRow {
   @include flex(row, center, flex-start, $space-3);
 
-  @include mobile { flex-direction: column; }
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 .suggestBtn {
   @include button-reset;
   @include flex(row, center, center, $space-2);
   @include focus-ring;
-  padding:       $space-2 $space-4;
-  background:    $accent-pale;
-  border:        1px solid rgba($accent, 0.3);
+  padding: $space-2 $space-4;
+  background: $accent-pale;
+  border: 1px solid rgba($accent, 0.3);
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-semibold;
-  color:         $accent;
-  white-space:   nowrap;
-  cursor:        pointer;
-  transition:    all $duration-base $ease-in-out;
-  height:        40px;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $accent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  height: 40px;
 
-  &:hover:not(:disabled) { background: rgba($accent, 0.15); }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: rgba($accent, 0.15);
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 // ── Compare chips ─────────────────────────────────────────
@@ -361,37 +400,39 @@
 .originalToggle {
   summary {
     font-family: $font-body;
-    font-size:   $text-sm;
+    font-size: $text-sm;
     font-weight: $weight-semibold;
-    color:       $muted;
-    cursor:      pointer;
+    color: $muted;
+    cursor: pointer;
     user-select: none;
     padding: $space-2 0;
-    &:hover { color: $ink; }
+    &:hover {
+      color: $ink;
+    }
   }
 }
 
 .originalText {
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       $muted;
+  font-size: $text-sm;
+  color: $muted;
   line-height: $leading-relaxed;
-  padding:     $space-4;
-  background:  $surface-muted;
+  padding: $space-4;
+  background: $surface-muted;
   border-radius: $radius-md;
-  margin-top:  $space-3;
+  margin-top: $space-3;
   white-space: pre-wrap;
-  font-style:  italic;
+  font-style: italic;
 }
 
 // ── Image section ─────────────────────────────────────────
 
 .imageSection {
   @include flex(column, flex-start, flex-start, $space-4);
-  padding:       $space-5;
-  background:    $surface-muted;
+  padding: $space-5;
+  background: $surface-muted;
   border-radius: $radius-md;
-  border:        1px dashed $border-strong;
+  border: 1px dashed $border-strong;
 }
 
 .imageSectionHeader {
@@ -401,27 +442,32 @@
 
 .imageSectionLabel {
   font-family: $font-body;
-  font-size:   $text-sm;
+  font-size: $text-sm;
   font-weight: $weight-semibold;
-  color:       $ink;
+  color: $ink;
 }
 
 .generateImageBtn {
   @include button-reset;
   @include flex(row, center, center, $space-2);
   @include focus-ring;
-  padding:       $space-2 $space-4;
-  background:    $ink;
-  color:         $surface;
+  padding: $space-2 $space-4;
+  background: $ink;
+  color: $surface;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-semibold;
-  cursor:        pointer;
-  transition:    all $duration-base $ease-in-out;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
 
-  &:hover:not(:disabled) { background: $accent; }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: $accent;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .imagePreview {
@@ -430,48 +476,59 @@
 }
 
 .generatedImage {
-  width:         100%;
-  height:        220px;
-  object-fit:    cover;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
   border-radius: $radius-md;
-  display:       block;
+  display: block;
+}
+
+.imageErrorMsg {
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: $error;
+  padding: $space-3 $space-4;
+  background: rgba($error, 0.06);
+  border-radius: $radius-md;
 }
 
 .regenBtn {
   @include button-reset;
-  position:      absolute;
-  bottom:        $space-3;
-  right:         $space-3;
-  padding:       $space-2 $space-3;
-  background:    rgba($surface, 0.9);
-  border:        1px solid $border;
+  position: absolute;
+  bottom: $space-3;
+  right: $space-3;
+  padding: $space-2 $space-3;
+  background: rgba($surface, 0.9);
+  border: 1px solid $border;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-semibold;
-  color:         $ink;
-  cursor:        pointer;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $ink;
+  cursor: pointer;
   backdrop-filter: blur(8px);
-  transition:    all $duration-fast $ease-in-out;
+  transition: all $duration-fast $ease-in-out;
 
-  &:hover { background: $surface; }
+  &:hover {
+    background: $surface;
+  }
 }
 
 // ── Preview card ──────────────────────────────────────────
 
 .previewCard {
-  background:    $surface;
-  border:        1px solid $border;
+  background: $surface;
+  border: 1px solid $border;
   border-radius: $radius-lg;
-  overflow:      hidden;
-  box-shadow:    $shadow-md;
+  overflow: hidden;
+  box-shadow: $shadow-md;
 }
 
 .previewImage {
-  width:       100%;
-  height:      240px;
-  object-fit:  cover;
-  display:     block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
 }
 
 .previewBody {
@@ -479,39 +536,39 @@
 }
 
 .previewMeta {
-  font-family:    $font-body;
-  font-size:      $text-xs;
-  font-weight:    $weight-semibold;
-  color:          $accent;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $accent;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom:  $space-3;
+  margin-bottom: $space-3;
 }
 
 .previewTitle {
-  font-family:    $font-display;
-  font-size:      $text-3xl;
-  font-weight:    $weight-medium;
-  color:          $ink;
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $weight-medium;
+  color: $ink;
   letter-spacing: -0.02em;
-  line-height:    $leading-tight;
-  margin-bottom:  $space-5;
+  line-height: $leading-tight;
+  margin-bottom: $space-5;
 }
 
 .previewContext {
   @include flex(column, flex-start, flex-start, $space-2);
-  padding:       $space-4;
-  background:    $accent-pale;
+  padding: $space-4;
+  background: $accent-pale;
   border-radius: $radius-md;
   margin-bottom: $space-6;
   border-inline-start: 3px solid $accent;
 }
 
 .previewContextLabel {
-  font-family:    $font-body;
-  font-size:      $text-xs;
-  font-weight:    $weight-semibold;
-  color:          $accent;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $accent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -519,8 +576,8 @@
 .previewText {
   p {
     font-family: $font-body;
-    font-size:   $text-md;
-    color:       $ink-light;
+    font-size: $text-md;
+    color: $ink-light;
     line-height: $leading-relaxed;
     margin-bottom: $space-4;
   }
@@ -531,9 +588,9 @@
 .stepFooter {
   @include flex-between;
   padding-top: $space-6;
-  border-top:  1px solid $border;
-  flex-wrap:   wrap;
-  gap:         $space-3;
+  border-top: 1px solid $border;
+  flex-wrap: wrap;
+  gap: $space-3;
 }
 
 .footerRight {
@@ -546,49 +603,529 @@
   @include button-reset;
   @include flex(row, center, center, $space-2);
   @include focus-ring($accent);
-  padding:       $space-3 $space-6;
-  background:    $ink;
-  color:         $surface;
+  padding: $space-3 $space-6;
+  background: $ink;
+  color: $surface;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  font-weight:   $weight-semibold;
-  cursor:        pointer;
-  min-height:    44px;
-  transition:    all $duration-base $ease-in-out;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  cursor: pointer;
+  min-height: 44px;
+  transition: all $duration-base $ease-in-out;
 
-  &:hover:not(:disabled) { background: $accent; transform: translateY(-1px); box-shadow: $shadow-md; }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: $accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .ghostBtn {
   @include button-reset;
   @include focus-ring;
-  padding:     $space-3 $space-4;
-  color:       $muted;
+  padding: $space-3 $space-4;
+  color: $muted;
   font-family: $font-body;
-  font-size:   $text-sm;
+  font-size: $text-sm;
   font-weight: $weight-medium;
-  cursor:      pointer;
+  cursor: pointer;
   border-radius: $radius-md;
-  transition:  color $duration-fast $ease-in-out;
+  transition: color $duration-fast $ease-in-out;
 
-  &:hover { color: $ink; }
+  &:hover {
+    color: $ink;
+  }
 }
 
 .skipBtn {
   @include button-reset;
   @include focus-ring;
-  padding:       $space-3 $space-4;
-  color:         $muted;
-  font-family:   $font-body;
-  font-size:     $text-xs;
-  font-weight:   $weight-medium;
-  cursor:        pointer;
+  padding: $space-3 $space-4;
+  color: $muted;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-medium;
+  cursor: pointer;
   border-radius: $radius-md;
-  border:        1px solid $border;
-  transition:    all $duration-fast $ease-in-out;
+  border: 1px solid $border;
+  transition: all $duration-fast $ease-in-out;
 
-  &:hover:not(:disabled) { color: $ink; border-color: $border-strong; }
-  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    color: $ink;
+    border-color: $border-strong;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ── Image spinner & error (added) ────────────────────────
+
+.imageSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px;
+}
+
+.imageSpinnerLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  color: #9896a0;
+}
+
+.retryBtn {
+  background: none;
+  border: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9954a;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0 4px;
+}
+
+// ── Guided questions panel with answer fields ─────────────
+
+.promptsPanel {
+  background: #faf8f4;
+  border: 1.5px solid #e8e4dc;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.promptsPanelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #e8e4dc;
+  gap: 12px;
+}
+
+.promptsPanelTitle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1929;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.promptsPanelSub {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  color: #9896a0;
+  margin: 0;
+}
+
+.questionsList {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.questionItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e8e4dc;
+  border-inline-start-width: 3px;
+}
+
+.cat_memory {
+  border-inline-start-color: #c9954a;
+}
+.cat_emotion {
+  border-inline-start-color: #7c6fe0;
+}
+.cat_detail {
+  border-inline-start-color: #4caf82;
+}
+.cat_context {
+  border-inline-start-color: #e8a04a;
+}
+
+.questionNumber {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f4f0e8;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #9896a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.questionBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.questionText {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1929;
+  line-height: 1.45;
+  cursor: default;
+}
+
+.answerField {
+  width: 100%;
+  padding: 8px 10px;
+  background: #faf8f4;
+  border: 1.5px solid #e8e4dc;
+  border-radius: 8px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #1a1929;
+  resize: none;
+  outline: none;
+  transition: border-color 150ms ease;
+
+  &:focus {
+    border-color: #c9954a;
+    background: #ffffff;
+  }
+
+  &::placeholder {
+    color: #c4c2cc;
+    font-style: italic;
+  }
+}
+
+.answeredBadge {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4caf82;
+  padding: 4px 10px;
+  background: #e8f5ee;
+  border-radius: 999px;
+}
+
+.answersFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 16px;
+  border-top: 1px solid #e8e4dc;
+  background: #f8f0e0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.answersNote {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  color: #9e7030;
+  font-weight: 500;
+}
+
+.closeAnswersBtn {
+  background: none;
+  border: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c9954a;
+  cursor: pointer;
+  padding: 0;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: #9e7030;
+  }
+}
+
+.answersUsedBadge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: #f8f0e0;
+  border: 1px solid rgba(201, 149, 74, 0.3);
+  border-radius: 999px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9954a;
+}
+
+// ── Image spinner ─────────────────────────────────────────
+
+.imageSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px;
+}
+
+.imageSpinnerLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  color: #9896a0;
+  font-style: italic;
+  text-align: center;
+}
+
+.imageErrorMsg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fdeaea;
+  border-radius: 8px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  color: #a32d2d;
+}
+
+.retryBtn {
+  background: none;
+  border: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9954a;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+// ── Save error ────────────────────────────────────────────
+
+.saveGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.saveErrorMsg {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  color: #a32d2d;
+  background: #fdeaea;
+  border: 1px solid rgba(224, 92, 92, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 360px;
+  line-height: 1.5;
+  text-align: end;
+}
+
+// ── Write toolbar ─────────────────────────────────────────
+
+.writeToolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+// ── Voice button ──────────────────────────────────────────
+
+.voiceBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #ffffff;
+  border: 1.5px solid #e8e4dc;
+  border-radius: 999px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1929;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:hover {
+    border-color: #c9954a;
+    color: #c9954a;
+  }
+}
+
+.voiceActive {
+  background: #fdeaea;
+  border-color: #e05c5c;
+  color: #e05c5c;
+  animation: pulseBorder 1.5s infinite;
+
+  @keyframes pulseBorder {
+    0%,
+    100% {
+      border-color: #e05c5c;
+    }
+    50% {
+      border-color: rgba(224, 92, 92, 0.4);
+    }
+  }
+}
+
+.listeningBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #fdeaea;
+  border-radius: 8px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a32d2d;
+  margin-top: -4px;
+}
+
+.listeningDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e05c5c;
+  flex-shrink: 0;
+  animation: pulse 1s infinite;
+}
+
+// ── Tone selector ─────────────────────────────────────────
+
+.toneSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #faf8f4;
+  border: 1px solid #e8e4dc;
+  border-radius: 12px;
+}
+
+.toneLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9954a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.toneChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.toneChip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1.5px solid #e8e4dc;
+  border-radius: 999px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3d3b52;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:hover:not(:disabled) {
+    border-color: #c9954a;
+    background: #f8f0e0;
+    color: #9e7030;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.toneChipActive {
+  background: #f8f0e0;
+  border-color: #c9954a;
+  color: #9e7030;
+  font-weight: 600;
+}
+
+.toneEnhancing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  color: #c9954a;
+  font-style: italic;
+}
+
+// ── Image actions row ─────────────────────────────────────
+
+.imageActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.uploadImageBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #ffffff;
+  border: 1.5px solid #e8e4dc;
+  border-radius: 8px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #3d3b52;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:hover {
+    border-color: #c9954a;
+    color: #c9954a;
+    background: #f8f0e0;
+  }
+}
+
+.removeImageBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e8e4dc;
+  border-radius: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e05c5c;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: #fdeaea;
+  }
 }

@@ -4,55 +4,92 @@
     "tagline": "Weave your family stories"
   },
   "nav": {
-    "dashboard":  "Dashboard",
-    "stories":    "Stories",
+    "dashboard": "Dashboard",
+    "stories": "Stories",
     "familyTree": "Family Tree",
-    "recipes":    "Recipes",
-    "myBook":     "My Book",
-    "settings":   "Settings"
+    "recipes": "Recipes",
+    "myBook": "My Book",
+    "settings": "Settings"
   },
   "auth": {
-    "signIn":           "Sign In",
-    "signOut":          "Sign Out",
-    "signUp":           "Create Account",
-    "email":            "Email address",
-    "password":         "Password",
-    "forgotPassword":   "Forgot password?",
-    "noAccount":        "Don't have an account?",
-    "haveAccount":      "Already have an account?",
-    "continueGoogle":   "Continue with Google",
-    "orDivider":        "or",
-    "welcomeBack":      "Welcome back",
-    "createYourAccount":"Create your account",
-    "joinLoombox":      "Start weaving your family stories today"
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signUp": "Create Account",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "yourName": "Your name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "continueGoogle": "Continue with Google",
+    "orDivider": "or",
+    "welcomeBack": "Welcome back",
+    "createYourAccount": "Create your account",
+    "joinLoombox": "Start weaving your family stories today",
+    "signingIn": "Signing in…",
+    "creatingAccount": "Creating account…",
+    "features": {
+      "ai": "AI-assisted story writing",
+      "tree": "Interactive family tree",
+      "photos": "Photo & memory preservation",
+      "book": "Beautiful heirloom books"
+    },
+    "errors": {
+      "userNotFound": "No account found with this email.",
+      "wrongPassword": "Incorrect password. Please try again.",
+      "emailInUse": "An account with this email already exists.",
+      "weakPassword": "Password must be at least 6 characters.",
+      "invalidEmail": "Please enter a valid email address.",
+      "popupClosed": "Sign-in popup was closed. Please try again.",
+      "network": "Network error. Check your connection.",
+      "tooManyRequests": "Too many attempts. Please wait and try again.",
+      "invalidCred": "Invalid email or password.",
+      "default": "Something went wrong. Please try again."
+    },
+    "validation": {
+      "invalidEmail": "Invalid email address",
+      "passwordMin": "Password must be at least 6 characters",
+      "nameMin": "Name must be at least 2 characters",
+      "passwordMatch": "Passwords do not match"
+    }
   },
   "landing": {
     "hero": {
-      "headline":    "Your family's story\ndeserves to be told",
+      "badge": "Free forever · No credit card needed",
+      "headline": "Your family's story\ndeserves to be told",
       "subheadline": "LoomBox uses AI to help you gather, write, and beautifully preserve the stories, photos, and memories that make your family unique.",
-      "cta":         "Start for free",
-      "ctaSecondary":"See how it works"
+      "cta": "Start for free",
+      "ctaSecondary": "See how it works"
+    },
+    "stats": {
+      "free": "Free",
+      "styles": "Book styles",
+      "languages": "Languages",
+      "memories": "Memories"
     },
     "features": {
+      "label": "Features",
       "title": "Everything you need to preserve what matters",
       "ai": {
         "title": "AI Story Weaver",
-        "desc":  "Our AI asks thoughtful questions, suggests phrasing, and helps you bring memories to life in your own voice."
+        "desc": "Our AI asks thoughtful questions, suggests phrasing, and helps you bring memories to life in your own voice."
       },
       "tree": {
         "title": "Family Tree",
-        "desc":  "Build your family tree and link stories, photos, and recipes to each member across generations."
+        "desc": "Build your family tree and link stories, photos, and recipes to each member across generations."
       },
       "images": {
         "title": "AI-Generated Illustrations",
-        "desc":  "Automatically generate era-accurate illustrations and historical context for every story you tell."
+        "desc": "Automatically generate era-accurate illustrations and historical context for every story you tell."
       },
       "book": {
         "title": "Beautiful Books",
-        "desc":  "Choose from three stunning book styles and download a print-ready PDF to treasure forever."
+        "desc": "Choose from three stunning book styles and download a print-ready PDF to treasure forever."
       }
     },
     "bookStyles": {
+      "label": "Book Styles",
       "title": "Three styles. One heirloom.",
       "heritage": {
         "name": "Heritage",
@@ -66,98 +103,194 @@
         "name": "Scrapbook",
         "desc": "Playful and personal, a handcrafted feel"
       }
+    },
+    "cta": {
+      "title": "Start preserving your",
+      "titleEm": "family legacy today",
+      "sub": "Free forever. No credit card. Your stories, beautifully told.",
+      "button": "Start for free →"
+    },
+    "footer": {
+      "tagline": "Weave your family stories"
     }
   },
   "dashboard": {
-    "greeting":       "Good {{time}}, {{name}}",
-    "continueStory":  "Continue your story",
-    "newStory":       "New story",
-    "recentStories":  "Recent stories",
-    "progressTitle":  "Your book progress",
-    "storiesAdded":   "{{count}} stories added",
-    "membersAdded":   "{{count}} family members",
-    "photosAdded":    "{{count}} photos uploaded"
+    "greeting": {
+      "start": "Start weaving your family story",
+      "back": "Welcome back to your story"
+    },
+    "greetingTime": "Good {{time}}, {{name}} ✦",
+    "progressTitle": "Your book progress",
+    "progressSub": "{{count}} of 10 stories added to your book",
+    "viewBook": "View book",
+    "newStory": "New story",
+    "recentStories": "Recent stories",
+    "viewAll": "View all →",
+    "stats": {
+      "stories": "Stories",
+      "photos": "Photos",
+      "members": "Members",
+      "recipes": "Recipes"
+    },
+    "quick": {
+      "newStory": "New Story",
+      "newStoryDesc": "Weave a memory with AI",
+      "familyTree": "Family Tree",
+      "familyTreeDesc": "Add or view family members",
+      "recipe": "Recipe",
+      "recipeDesc": "Preserve a family recipe",
+      "myBook": "My Book",
+      "myBookDesc": "Preview & download PDF"
+    },
+    "empty": {
+      "title": "Your story begins here",
+      "sub": "Every family has stories worth telling. Let AI help you find the words.",
+      "cta": "Write your first story"
+    },
+    "addStory": "Add a story"
+  },
+  "stories": {
+    "title": "Stories",
+    "collection": "{{count}} story in your collection",
+    "collection_plural": "{{count}} stories in your collection",
+    "noStories": "No stories yet",
+    "noStoriesDesc": "Every great book starts with a first story.",
+    "firstStory": "Write your first story",
+    "addStory": "Add a story",
+    "inBook": "In book",
+    "addToBook": "Add to book",
+    "removeFromBook": "Remove from book",
+    "deleteStory": "Delete story",
+    "deleteConfirm": "Delete this story?",
+    "notFound": "Story not found",
+    "backToStories": "← Back to stories"
   },
   "story": {
-    "new":           "New Story",
-    "title":         "Story title",
-    "titlePlaceholder": "What do you want to call this story?",
-    "prompts":       "Story prompts",
-    "promptHelp":    "Let AI guide you with questions",
-    "write":         "Write freely",
-    "enhance":       "Enhance with AI",
-    "addPhoto":      "Add a photo",
-    "addMember":     "Tag a family member",
-    "era":           "When did this take place?",
-    "location":      "Where did this take place?",
-    "save":          "Save story",
-    "publish":       "Add to book",
-    "generating":    "Weaving your story…",
-    "findingContext":"Finding historical context…"
+    "new": "New Story",
+    "untitled": "Untitled Story",
+    "title": "Story title",
+    "titlePlaceholder": "e.g. Grandma's Kitchen in Warsaw",
+    "era": "When did this take place?",
+    "eraPlaceholder": "e.g. 1952, The 1960s, Summer of 1978",
+    "location": "Where did this take place?",
+    "locationPlaceholder": "e.g. Warsaw, Poland · Tel Aviv · Brooklyn",
+    "whatIsStory": "What's this story about?",
+    "whatIsStoryDesc": "Give your story a name and set the scene — AI will use this to find historical context and generate the perfect illustration.",
+    "tellYourStory": "Tell your story",
+    "tellYourStoryDesc": "Write freely in your own words. Don't worry about perfection — AI will help you polish it next. Use the prompts if you need inspiration.",
+    "aiEnhanced": "AI has enhanced your story ✦",
+    "aiEnhancedDesc": "Review the enhanced version below. You can edit it freely — it's still your story, just beautifully told.",
+    "ready": "Your story is ready",
+    "readyDesc": "This is how your story will appear in your family book. You can always edit it later.",
+    "steps": {
+      "details": "1. Details",
+      "write": "2. Your Story",
+      "aiMagic": "3. AI Magic",
+      "preview": "4. Preview"
+    },
+    "historicalContext": "Historical context",
+    "findContext": "Find historical context",
+    "findingContext": "Finding context…",
+    "getPrompts": "Get writing prompts",
+    "loadingPrompts": "Loading prompts…",
+    "choosePrompt": "Choose a prompt to add to your story",
+    "wordCount": "{{count}} words",
+    "enhanceWithAI": "Enhance with AI",
+    "enhancing": "Enhancing…",
+    "saveWithout": "Save without enhancing",
+    "suggestTitle": "✦ Suggest title",
+    "suggestingTitle": "Suggesting…",
+    "enhancedVersion": "Enhanced version",
+    "yourOriginal": "Your original",
+    "viewOriginal": "View your original text",
+    "illustration": "✦ Story illustration",
+    "generateIllustration": "Generate AI illustration",
+    "generating": "Generating…",
+    "regenerate": "↺ Regenerate",
+    "skipTooltip": "Skip AI enhancement and save as-is",
+    "suggestTitleTooltip": "Suggest a title based on your story",
+    "continueWriting": "Continue to writing →",
+    "backToWriting": "← Back to writing",
+    "backToEdit": "← Edit",
+    "backStep": "← Back",
+    "preview": "Preview →",
+    "saveToStories": "✦ Save to my stories",
+    "saving": "Saving…",
+    "aiIllustration": "AI illustration",
+    "inBook": "In book",
+    "addToBook": "Add to book",
+    "removeFromBook": "Remove from book",
+    "delete": "Delete story",
+    "deleteConfirm": "Delete this story? This cannot be undone.",
+    "writePlaceholder": "Start writing your story here…\n\nYou can write in whatever way feels natural. Don't worry about perfect sentences — just get your memories down. AI will help you shape them beautifully in the next step.",
+    "imageError": "Could not load image. Please try again."
+  },
+  "sidebar": {
+    "bookProgress": "Book Progress"
   },
   "tree": {
-    "title":      "Family Tree",
-    "addMember":  "Add member",
-    "name":       "Full name",
-    "born":       "Date of birth",
-    "died":       "Date of death",
+    "title": "Family Tree",
+    "addMember": "Add member",
+    "name": "Full name",
+    "born": "Date of birth",
+    "died": "Date of death",
     "birthplace": "Place of birth",
-    "relation":   "Relationship",
+    "relation": "Relationship",
     "relations": {
-      "parent":   "Parent",
-      "child":    "Child",
-      "sibling":  "Sibling",
-      "spouse":   "Spouse",
+      "parent": "Parent",
+      "child": "Child",
+      "sibling": "Sibling",
+      "spouse": "Spouse",
       "grandparent": "Grandparent"
     }
   },
   "recipes": {
-    "title":        "Family Recipes",
-    "add":          "Add recipe",
-    "name":         "Recipe name",
-    "from":         "Passed down from",
-    "occasion":     "Occasion",
-    "ingredients":  "Ingredients",
-    "steps":        "Instructions",
-    "story":        "The story behind this recipe",
-    "aiHelp":       "Help me write this recipe's story"
+    "title": "Family Recipes",
+    "add": "Add recipe",
+    "name": "Recipe name",
+    "from": "Passed down from",
+    "occasion": "Occasion",
+    "ingredients": "Ingredients",
+    "steps": "Instructions",
+    "story": "The story behind this recipe",
+    "aiHelp": "Help me write this recipe's story"
   },
   "book": {
-    "title":       "My Family Book",
-    "style":       "Book style",
-    "preview":     "Preview",
-    "download":    "Download PDF",
+    "title": "My Family Book",
+    "style": "Book style",
+    "preview": "Preview",
+    "download": "Download PDF",
     "downloading": "Preparing your book…",
     "styles": {
-      "heritage":  "Heritage",
-      "canvas":    "Canvas",
+      "heritage": "Heritage",
+      "canvas": "Canvas",
       "scrapbook": "Scrapbook"
     },
     "sections": {
-      "stories":  "Stories",
-      "tree":     "Family Tree",
-      "recipes":  "Recipes",
-      "photos":   "Photo Gallery"
+      "stories": "Stories",
+      "tree": "Family Tree",
+      "recipes": "Recipes",
+      "photos": "Photo Gallery"
     }
   },
   "common": {
-    "save":       "Save",
-    "cancel":     "Cancel",
-    "delete":     "Delete",
-    "edit":       "Edit",
-    "back":       "Back",
-    "next":       "Next",
-    "loading":    "Loading…",
-    "error":      "Something went wrong",
-    "retry":      "Try again",
-    "upload":     "Upload",
-    "uploading":  "Uploading…",
-    "search":     "Search",
-    "noResults":  "No results found",
-    "required":   "Required",
-    "optional":   "Optional",
-    "morning":    "morning",
-    "afternoon":  "afternoon",
-    "evening":    "evening"
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "upload": "Upload",
+    "uploading": "Uploading…",
+    "search": "Search",
+    "noResults": "No results found",
+    "required": "Required",
+    "optional": "Optional",
+    "morning": "morning",
+    "afternoon": "afternoon",
+    "evening": "evening"
   }
 }

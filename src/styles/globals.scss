@@ -2,42 +2,42 @@
 // LoomBox Global Styles
 // ============================================================
 
-@use 'tokens' as *;
-@use 'mixins' as *;
+@use "tokens" as *;
+@use "mixins" as *;
 
 // --- CSS Custom Properties (runtime tokens) --------------
 
 :root {
   // Colors
-  --color-ink:          #{$ink};
-  --color-ink-light:    #{$ink-light};
-  --color-accent:       #{$accent};
+  --color-ink: #{$ink};
+  --color-ink-light: #{$ink-light};
+  --color-accent: #{$accent};
   --color-accent-light: #{$accent-light};
-  --color-accent-pale:  #{$accent-pale};
-  --color-bg:           #{$bg};
-  --color-bg-warm:      #{$bg-warm};
-  --color-surface:      #{$surface};
-  --color-surface-muted:#{$surface-muted};
-  --color-muted:        #{$muted};
-  --color-border:       #{$border};
-  --color-border-strong:#{$border-strong};
-  --color-success:      #{$success};
-  --color-warning:      #{$warning};
-  --color-error:        #{$error};
+  --color-accent-pale: #{$accent-pale};
+  --color-bg: #{$bg};
+  --color-bg-warm: #{$bg-warm};
+  --color-surface: #{$surface};
+  --color-surface-muted: #{$surface-muted};
+  --color-muted: #{$muted};
+  --color-border: #{$border};
+  --color-border-strong: #{$border-strong};
+  --color-success: #{$success};
+  --color-warning: #{$warning};
+  --color-error: #{$error};
 
   // Typography
-  --font-display:     #{$font-display};
-  --font-body:        #{$font-body};
+  --font-display: #{$font-display};
+  --font-body: #{$font-body};
   --font-handwritten: #{$font-handwritten};
 
   // Spacing
-  --space-1:  #{$space-1};
-  --space-2:  #{$space-2};
-  --space-3:  #{$space-3};
-  --space-4:  #{$space-4};
-  --space-5:  #{$space-5};
-  --space-6:  #{$space-6};
-  --space-8:  #{$space-8};
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --space-8: #{$space-8};
   --space-10: #{$space-10};
   --space-12: #{$space-12};
   --space-16: #{$space-16};
@@ -45,15 +45,17 @@
   --space-24: #{$space-24};
 
   // Layout
-  --navbar-height:    #{$navbar-height};
-  --sidebar-width:    #{$sidebar-width};
-  --sidebar-collapsed:#{$sidebar-collapsed};
-  --content-max:      #{$content-max};
+  --navbar-height: #{$navbar-height};
+  --sidebar-width: #{$sidebar-width};
+  --sidebar-collapsed: #{$sidebar-collapsed};
+  --content-max: #{$content-max};
 }
 
 // --- Reset -----------------------------------------------
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -78,19 +80,29 @@ body {
 }
 
 // Hebrew / RTL body
-body[dir='rtl'] {
+body[dir="rtl"] {
   font-family: $font-body;
   letter-spacing: 0;
 
   // Display font still applies to headings
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: $font-display;
   }
 }
 
 // --- Typography Base -------------------------------------
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-display;
   font-weight: $weight-medium;
   line-height: $leading-tight;
@@ -98,12 +110,24 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: $text-5xl; }
-h2 { font-size: $text-4xl; }
-h3 { font-size: $text-3xl; }
-h4 { font-size: $text-2xl; }
-h5 { font-size: $text-xl; }
-h6 { font-size: $text-lg; }
+h1 {
+  font-size: $text-5xl;
+}
+h2 {
+  font-size: $text-4xl;
+}
+h3 {
+  font-size: $text-3xl;
+}
+h4 {
+  font-size: $text-2xl;
+}
+h5 {
+  font-size: $text-xl;
+}
+h6 {
+  font-size: $text-lg;
+}
 
 p {
   color: $ink-light;
@@ -115,10 +139,13 @@ a {
   text-decoration: none;
   transition: color $duration-fast $ease-in-out;
 
-  &:hover { color: darken($accent, 12%); }
+  &:hover {
+    color: $accent-dark;
+  }
 }
 
-img, video {
+img,
+video {
   display: block;
   max-width: 100%;
 }
@@ -162,59 +189,99 @@ html {
   border: 0;
 }
 
-.truncate { @include truncate(1); }
-.truncate-2 { @include truncate(2); }
-.truncate-3 { @include truncate(3); }
+.truncate {
+  @include truncate(1);
+}
+.truncate-2 {
+  @include truncate(2);
+}
+.truncate-3 {
+  @include truncate(3);
+}
 
-.display-font { font-family: $font-display; }
-.body-font    { font-family: $font-body; }
-.hand-font    { font-family: $font-handwritten; }
+.display-font {
+  font-family: $font-display;
+}
+.body-font {
+  font-family: $font-body;
+}
+.hand-font {
+  font-family: $font-handwritten;
+}
 
 // --- Animations ------------------------------------------
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInFast {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 // --- Skeleton Loading ------------------------------------
 
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    $surface-muted 25%,
-    $border 50%,
-    $surface-muted 75%
-  );
+  background: linear-gradient(90deg, $surface-muted 25%, $border 50%, $surface-muted 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: $radius-sm;

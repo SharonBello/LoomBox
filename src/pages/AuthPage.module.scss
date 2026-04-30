@@ -1,10 +1,10 @@
-@use '@/styles/tokens' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
 
 // ── Page layout ──────────────────────────────────────────
 
 .page {
-  display:    grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100dvh;
 
@@ -16,16 +16,18 @@
 // ── Left decorative panel ────────────────────────────────
 
 .panel {
-  background:  $ink;
-  position:    relative;
-  overflow:    hidden;
+  background: $ink;
+  position: relative;
+  overflow: hidden;
 
-  @include mobile { display: none; }
+  @include mobile {
+    display: none;
+  }
 }
 
 .panelInner {
   @include flex(column, flex-start, flex-start, 0);
-  height:  100%;
+  height: 100%;
   padding: $space-12 $space-12;
   position: relative;
   z-index: 1;
@@ -39,19 +41,21 @@
 
 .brandStar {
   font-size: 22px;
-  color:     $accent;
+  color: $accent;
   animation: rotateStar 8s linear infinite;
 
   @keyframes rotateStar {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 
 .brandName {
-  font-family:    $font-display;
-  font-size:      $text-2xl;
-  font-weight:    $weight-medium;
-  color:          $surface;
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $weight-medium;
+  color: $surface;
   letter-spacing: -0.02em;
 }
 
@@ -59,13 +63,13 @@
   margin-bottom: $space-12;
 
   p {
-    font-family:   $font-display;
-    font-size:     $text-3xl;
-    font-weight:   $weight-light;
-    color:         rgba($surface, 0.9);
-    line-height:   $leading-snug;
+    font-family: $font-display;
+    font-size: $text-3xl;
+    font-weight: $weight-light;
+    color: rgba($surface, 0.9);
+    line-height: $leading-snug;
     letter-spacing: -0.02em;
-    font-style:    italic;
+    font-style: italic;
   }
 }
 
@@ -78,8 +82,8 @@
 .featureItem {
   @include flex(row, center, flex-start, $space-3);
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       rgba($surface, 0.7);
+  font-size: $text-sm;
+  color: rgba($surface, 0.7);
   font-weight: $weight-medium;
 }
 
@@ -93,27 +97,27 @@
 // Dot grid decoration
 .dotGrid {
   position: absolute;
-  bottom:   $space-12;
-  right:    $space-10;
-  display:  grid;
+  bottom: $space-12;
+  right: $space-10;
+  display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
 }
 
 .dot {
-  width:         4px;
-  height:        4px;
+  width: 4px;
+  height: 4px;
   border-radius: $radius-full;
-  background:    rgba($accent, 0.35);
-  display:       block;
+  background: rgba($accent, 0.35);
+  display: block;
 }
 
 // ── Right form panel ─────────────────────────────────────
 
 .formPanel {
-  background:    $bg;
+  background: $bg;
   @include flex(column, center, center, 0);
-  padding:       $space-8;
+  padding: $space-8;
 
   @include mobile {
     padding: $space-6 $space-5;
@@ -122,7 +126,7 @@
 }
 
 .formWrap {
-  width:     100%;
+  width: 100%;
   max-width: 420px;
   animation: fadeIn $duration-slow $ease-out-expo both;
 }
@@ -130,10 +134,46 @@
 .mobileBrand {
   @include flex(row, center, flex-start, $space-2);
   text-decoration: none;
+  display: none;
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+.mobileTop {
+  @include flex-between;
   margin-bottom: $space-8;
   display: none;
 
-  @include mobile { display: flex; }
+  @include mobile {
+    display: flex;
+  }
+}
+
+.langBtn {
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-2 $space-3;
+  border-radius: $radius-full;
+  border: 1px solid $border;
+  background: $surface;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  font-size: 14px;
+
+  &:hover {
+    border-color: $accent;
+    background: $accent-pale;
+  }
+}
+
+.langLabel {
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $ink-light;
 }
 
 // ── Heading ──────────────────────────────────────────────
@@ -143,19 +183,19 @@
 }
 
 .title {
-  font-family:    $font-display;
-  font-size:      $text-3xl;
-  font-weight:    $weight-medium;
-  color:          $ink;
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $weight-medium;
+  color: $ink;
   letter-spacing: -0.02em;
-  line-height:    $leading-tight;
-  margin-bottom:  $space-2;
+  line-height: $leading-tight;
+  margin-bottom: $space-2;
 }
 
 .subtitle {
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       $muted;
+  font-size: $text-sm;
+  color: $muted;
   line-height: $leading-base;
 }
 
@@ -163,24 +203,24 @@
 
 .tabs {
   @include flex(row, center, flex-start, $space-1);
-  background:    $surface-muted;
+  background: $surface-muted;
   border-radius: $radius-md;
-  padding:       4px;
+  padding: 4px;
   margin-bottom: $space-6;
 }
 
 .tab {
   @include button-reset;
   @include focus-ring;
-  flex:          1;
-  padding:       $space-2 $space-4;
+  flex: 1;
+  padding: $space-2 $space-4;
   border-radius: 10px;
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  font-weight:   $weight-medium;
-  color:         $muted;
-  transition:    all $duration-base $ease-in-out;
-  text-align:    center;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  color: $muted;
+  transition: all $duration-base $ease-in-out;
+  text-align: center;
 
   &:hover:not(.tabActive) {
     color: $ink;
@@ -188,9 +228,9 @@
 }
 
 .tabActive {
-  background:  $surface;
-  color:       $ink;
-  box-shadow:  $shadow-sm;
+  background: $surface;
+  color: $ink;
+  box-shadow: $shadow-sm;
 }
 
 // ── Google button ────────────────────────────────────────
@@ -199,40 +239,40 @@
   @include button-reset;
   @include flex(row, center, center, $space-3);
   @include focus-ring;
-  width:         100%;
-  padding:       $space-3 $space-4;
-  background:    $surface;
-  border:        1.5px solid $border;
+  width: 100%;
+  padding: $space-3 $space-4;
+  background: $surface;
+  border: 1.5px solid $border;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  font-weight:   $weight-semibold;
-  color:         $ink;
-  transition:    all $duration-base $ease-in-out;
-  cursor:        pointer;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
+  transition: all $duration-base $ease-in-out;
+  cursor: pointer;
 
   &:hover:not(:disabled) {
     border-color: $ink-light;
-    background:   $surface-muted;
-    transform:    translateY(-1px);
-    box-shadow:   $shadow-sm;
+    background: $surface-muted;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
   }
 
   &:disabled {
     opacity: 0.6;
-    cursor:  not-allowed;
+    cursor: not-allowed;
   }
 }
 
 // ── Divider ──────────────────────────────────────────────
 
 .dividerLabel {
-  font-family:    $font-body;
-  font-size:      $text-xs;
-  color:          $muted;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding:        0 $space-3;
+  padding: 0 $space-3;
 }
 
 // ── Forms ────────────────────────────────────────────────
@@ -242,21 +282,23 @@
 }
 
 .forgotRow {
-  display:     flex;
+  display: flex;
   justify-content: flex-end;
-  margin-top:  -$space-2;
+  margin-top: -$space-2;
 }
 
 .forgotBtn {
   @include button-reset;
   @include focus-ring;
   font-family: $font-body;
-  font-size:   $text-xs;
-  color:       $muted;
-  transition:  color $duration-fast $ease-in-out;
-  cursor:      pointer;
+  font-size: $text-xs;
+  color: $muted;
+  transition: color $duration-fast $ease-in-out;
+  cursor: pointer;
 
-  &:hover { color: $accent; }
+  &:hover {
+    color: $accent;
+  }
 }
 
 // ── Submit button ────────────────────────────────────────
@@ -265,22 +307,22 @@
   @include button-reset;
   @include flex(row, center, center, $space-2);
   @include focus-ring($accent);
-  width:         100%;
-  padding:       $space-3 $space-4;
-  background:    $ink;
-  color:         $surface;
+  width: 100%;
+  padding: $space-3 $space-4;
+  background: $ink;
+  color: $surface;
   border-radius: $radius-md;
-  font-family:   $font-body;
-  font-size:     $text-sm;
-  font-weight:   $weight-semibold;
-  transition:    all $duration-base $ease-in-out;
-  cursor:        pointer;
-  min-height:    46px;
-  margin-top:    $space-2;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  transition: all $duration-base $ease-in-out;
+  cursor: pointer;
+  min-height: 46px;
+  margin-top: $space-2;
 
   &:hover:not(:disabled) {
     background: $ink-light;
-    transform:  translateY(-1px);
+    transform: translateY(-1px);
     box-shadow: $shadow-md;
   }
 
@@ -290,29 +332,31 @@
 
   &:disabled {
     opacity: 0.6;
-    cursor:  not-allowed;
+    cursor: not-allowed;
   }
 }
 
 // ── Toggle row ───────────────────────────────────────────
 
 .toggleText {
-  margin-top:  $space-6;
-  text-align:  center;
+  margin-top: $space-6;
+  text-align: center;
   font-family: $font-body;
-  font-size:   $text-sm;
-  color:       $muted;
+  font-size: $text-sm;
+  color: $muted;
 }
 
 .toggleBtn {
   @include button-reset;
   @include focus-ring;
   font-family: $font-body;
-  font-size:   $text-sm;
+  font-size: $text-sm;
   font-weight: $weight-semibold;
-  color:       $accent;
-  cursor:      pointer;
-  transition:  color $duration-fast $ease-in-out;
+  color: $accent;
+  cursor: pointer;
+  transition: color $duration-fast $ease-in-out;
 
-  &:hover { color: darken($accent, 10%); }
+  &:hover {
+    color: $accent-mid;
+  }
 }

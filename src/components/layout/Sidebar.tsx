@@ -11,11 +11,11 @@ import { useAppStore } from '@/store/appStore'
 import styles from './Sidebar.module.scss'
 
 const NAV_ITEMS = [
-  { to: '/dashboard',   icon: DashboardOutlinedIcon,    key: 'dashboard'  },
-  { to: '/stories',     icon: AutoStoriesOutlinedIcon,  key: 'stories'    },
-  { to: '/family-tree', icon: AccountTreeOutlinedIcon,  key: 'familyTree' },
-  { to: '/recipes',     icon: LocalDiningOutlinedIcon,  key: 'recipes'    },
-  { to: '/book',        icon: MenuBookOutlinedIcon,      key: 'myBook'     },
+  { to: '/dashboard', icon: DashboardOutlinedIcon, key: 'dashboard' },
+  { to: '/stories', icon: AutoStoriesOutlinedIcon, key: 'stories' },
+  { to: '/family-tree', icon: AccountTreeOutlinedIcon, key: 'familyTree' },
+  { to: '/recipes', icon: LocalDiningOutlinedIcon, key: 'recipes' },
+  { to: '/book', icon: MenuBookOutlinedIcon, key: 'myBook' },
 ] as const
 
 const BOTTOM_ITEMS = [
@@ -23,9 +23,9 @@ const BOTTOM_ITEMS = [
 ] as const
 
 interface NavItemProps {
-  to:       string
-  icon:     React.ElementType
-  label:    string
+  to: string
+  icon: React.ElementType
+  label: string
   collapsed: boolean
 }
 
@@ -44,9 +44,9 @@ const NavItem = ({ to, icon: Icon, label, collapsed }: NavItemProps) => (
 )
 
 const Sidebar = () => {
-  const { t }           = useTranslation()
+  const { t } = useTranslation()
   const { sidebarOpen } = useAppStore()
-  const collapsed       = !sidebarOpen
+  const collapsed = !sidebarOpen
 
   return (
     <aside
@@ -57,7 +57,7 @@ const Sidebar = () => {
       {/* Book progress teaser */}
       {!collapsed && (
         <div className={styles.progressCard}>
-          <span className={styles.progressLabel}>Book progress</span>
+          <span className={styles.progressLabel}>{t('sidebar.bookProgress')}</span>
           <div className={styles.progressBar}>
             <div className={styles.progressFill} style={{ width: '35%' }} />
           </div>
