@@ -10,6 +10,7 @@ import { memberService } from '@/services/memberService'
 import { recipeService } from '@/services/recipeService'
 import { bookConfigService } from '@/services/bookConfigService'
 import { renderBook } from '@/features/book/BookRenderer'
+import type { PageSize } from '@/features/book/BookRenderer'
 import type { BookConfig, BookStyle, BookSectionType, Story, FamilyMember, Recipe } from '@/types'
 import styles from './BookPage.module.scss'
 
@@ -49,6 +50,7 @@ const BookPage = () => {
   const [downloading, setDownloading] = useState(false)
   const [previewOpen, setPreviewOpen] = useState(false)
   const [saveMsg, setSaveMsg] = useState('')
+  const [pageSize, setPageSize] = useState<PageSize>('landscape-10x8')
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const dragRef = useRef<number | null>(null)
 
@@ -98,24 +100,20 @@ const BookPage = () => {
     dragRef.current = i
   }
 
-  // Build HTML and open preview
   const openPreview = () => {
     if (!config) return
-    const html = renderBook({ config, stories, members, recipes })
+    const html = renderBook({ config, stories, members, recipes, pageSize })
     setPreviewOpen(true)
     setTimeout(() => {
-      if (iframeRef.current) {
-        iframeRef.current.srcdoc = html
-      }
+      if (iframeRef.current) iframeRef.current.srcdoc = html
     }, 100)
   }
 
-  // Download as HTML (opens print dialog for PDF)
   const handleDownload = async () => {
     if (!config) return
     setDownloading(true)
     try {
-      const html = renderBook({ config, stories, members, recipes })
+      const html = renderBook({ config, stories, members, recipes, pageSize })
       const blob = new Blob([html], { type: 'text/html' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
@@ -169,6 +167,30 @@ const BookPage = () => {
       <div className={styles.layout}>
         {/* Left: config panel */}
         <div className={styles.configPanel}>
+
+          {/* ── Page size picker ── */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>✦ Page size</h2>
+            <div className={styles.sizeGrid}>
+              {([
+                { key: 'landscape-10x8' as PageSize, label: '10×8" Landscape', sub: 'Photobook — Blurb / Lulu ready', icon: '🖼️', rec: true },
+                { key: 'a4-portrait' as PageSize, label: 'A4 Portrait', sub: 'Standard PDF — print anywhere', icon: '📄', rec: false },
+              ] as const).map(s => (
+                <button key={s.key}
+                  className={`${styles.sizeCard} ${pageSize === s.key ? styles.sizeCardActive : ''}`}
+                  onClick={() => setPageSize(s.key)}
+                >
+                  <div className={styles.sizeIcon}>{s.icon}</div>
+                  <div className={styles.sizeInfo}>
+                    <span className={styles.sizeName}>{s.label}</span>
+                    <span className={styles.sizeSub}>{s.sub}</span>
+                  </div>
+                  {s.rec && <span className={styles.sizeRec}>Recommended</span>}
+                  {pageSize === s.key && <span className={styles.sizeCheck}>✓</span>}
+                </button>
+              ))}
+            </div>
+          </section>
 
           {/* ── Style picker ── */}
           <section className={styles.section}>

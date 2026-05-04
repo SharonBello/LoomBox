@@ -1,5 +1,5 @@
-@use '@/styles/tokens' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
 
 .page {
   @include flex(column, stretch, flex-start, $space-8);
@@ -7,7 +7,10 @@
   padding-bottom: $space-16;
 }
 
-.loader { @include flex-center; min-height: 50vh; }
+.loader {
+  @include flex-center;
+  min-height: 50vh;
+}
 
 // ── Header ────────────────────────────────────────────────
 
@@ -18,11 +21,19 @@
 }
 
 .title {
-  font-family: $font-display; font-size: $text-3xl; font-weight: $weight-medium;
-  color: $ink; letter-spacing: -0.02em;
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $weight-medium;
+  color: $ink;
+  letter-spacing: -0.02em;
 }
 
-.sub { font-family: $font-body; font-size: $text-sm; color: $muted; margin-top: $space-1; }
+.sub {
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: $muted;
+  margin-top: $space-1;
+}
 
 .headerActions {
   @include flex(row, center, flex-end, $space-3);
@@ -30,32 +41,72 @@
 }
 
 .saveMsg {
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold; color: $success;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $success;
 }
 
 .saveBtn {
-  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
-  padding: $space-2 $space-5; border: 1.5px solid $border; border-radius: $radius-md;
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
-  color: $ink-light; cursor: pointer; transition: all $duration-base $ease-in-out;
-  &:hover { border-color: $border-strong; color: $ink; }
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-2 $space-5;
+  border: 1.5px solid $border;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink-light;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover {
+    border-color: $border-strong;
+    color: $ink;
+  }
 }
 
 .previewBtn {
-  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
-  padding: $space-2 $space-5; border: 1.5px solid $ink; border-radius: $radius-md;
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
-  color: $ink; cursor: pointer; transition: all $duration-base $ease-in-out;
-  &:hover { background: $ink; color: $surface; }
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-2 $space-5;
+  border: 1.5px solid $ink;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover {
+    background: $ink;
+    color: $surface;
+  }
 }
 
 .downloadBtn {
-  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
-  padding: $space-2 $space-5; background: $accent; color: $surface; border-radius: $radius-md;
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
-  cursor: pointer; transition: all $duration-base $ease-in-out;
-  &:hover:not(:disabled) { background: $accent-dark; transform: translateY(-1px); box-shadow: $shadow-md; }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-2 $space-5;
+  background: $accent;
+  color: $surface;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover:not(:disabled) {
+    background: $accent-dark;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 // ── Layout ────────────────────────────────────────────────
@@ -66,7 +117,9 @@
   gap: $space-8;
   align-items: flex-start;
 
-  @include mobile { grid-template-columns: 1fr; }
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .configPanel {
@@ -77,54 +130,95 @@
 
 .section {
   @include flex(column, stretch, flex-start, $space-5);
-  background: $surface; border: 1px solid $border; border-radius: $radius-lg; padding: $space-6;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-6;
 }
 
 .sectionTitle {
-  font-family: $font-display; font-size: $text-xl; font-weight: $weight-semibold;
-  color: $ink; letter-spacing: -0.01em;
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-semibold;
+  color: $ink;
+  letter-spacing: -0.01em;
 }
 
 .sectionSub {
-  font-family: $font-body; font-size: $text-xs; color: $muted;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
   margin-top: -$space-3;
 }
 
 // ── Style picker ──────────────────────────────────────────
 
 .styleGrid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: $space-4;
-  @include mobile { grid-template-columns: 1fr; }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .styleCard {
-  @include button-reset; @include flex(column, stretch, flex-start, 0); @include focus-ring;
-  border: 1.5px solid $border; border-radius: $radius-lg; overflow: hidden;
-  cursor: pointer; transition: all $duration-base $ease-in-out; text-align: start;
+  @include button-reset;
+  @include flex(column, stretch, flex-start, 0);
+  @include focus-ring;
+  border: 1.5px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  text-align: start;
 
-  &:hover { border-color: $accent; transform: translateY(-2px); box-shadow: $shadow-md; }
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
 }
 
-.styleCardActive { border-color: $accent; box-shadow: 0 0 0 3px rgba($accent, 0.15); }
+.styleCardActive {
+  border-color: $accent;
+  box-shadow: 0 0 0 3px rgba($accent, 0.15);
+}
 
 .stylePreview {
-  height: 140px; position: relative; @include flex(column, center, center, $space-2);
+  height: 140px;
+  position: relative;
+  @include flex(column, center, center, $space-2);
   padding: $space-4;
 }
 
 .styleSpine {
-  position: absolute; left: 0; top: 0; bottom: 0; width: 6px; opacity: 0.7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  opacity: 0.7;
 }
 
 .styleContent {
   @include flex(column, center, center, $space-1);
-  text-align: center; padding-inline-start: 10px;
+  text-align: center;
+  padding-inline-start: 10px;
 }
 
 .styleCheck {
-  position: absolute; top: 8px; right: 8px; width: 22px; height: 22px;
-  background: $accent; color: $surface; border-radius: $radius-full;
-  @include flex-center; font-size: 12px; font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background: $accent;
+  color: $surface;
+  border-radius: $radius-full;
+  @include flex-center;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .styleInfo {
@@ -135,39 +229,66 @@
 }
 
 .styleName {
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold; color: $ink;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
 }
 
 .styleDesc {
-  font-family: $font-body; font-size: $text-xs; color: $muted; line-height: $leading-snug;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
+  line-height: $leading-snug;
 }
 
 // ── Fields ────────────────────────────────────────────────
 
-.fields { @include flex(column, stretch, flex-start, $space-4); }
+.fields {
+  @include flex(column, stretch, flex-start, $space-4);
+}
 
 // ── Section list ──────────────────────────────────────────
 
-.sectionList { @include flex(column, stretch, flex-start, $space-2); }
+.sectionList {
+  @include flex(column, stretch, flex-start, $space-2);
+}
 
 .sectionRow {
   @include flex(row, center, flex-start, $space-3);
-  padding: $space-3 $space-4; background: $bg; border: 1px solid $border;
-  border-radius: $radius-md; transition: all $duration-base $ease-in-out; cursor: grab;
+  padding: $space-3 $space-4;
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition: all $duration-base $ease-in-out;
+  cursor: grab;
   user-select: none;
 
-  &:hover { border-color: $border-strong; background: $surface; }
-  &:active { cursor: grabbing; }
+  &:hover {
+    border-color: $border-strong;
+    background: $surface;
+  }
+  &:active {
+    cursor: grabbing;
+  }
 }
 
-.sectionRowDisabled { opacity: 0.5; }
+.sectionRowDisabled {
+  opacity: 0.5;
+}
 
 .sectionRowLabel {
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold; color: $ink; flex: 1;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
+  flex: 1;
 }
 
 .sectionRowCount {
-  font-family: $font-body; font-size: $text-xs; color: $muted;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
 }
 
 // ── Live preview panel ────────────────────────────────────
@@ -179,30 +300,47 @@
 }
 
 .livePreviewLabel {
-  font-family: $font-body; font-size: $text-xs; font-weight: $weight-semibold;
-  color: $muted; text-transform: uppercase; letter-spacing: 0.08em;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .miniBook {
-  border-radius: $radius-lg; border: 1px solid $border;
-  min-height: 340px; position: relative; overflow: hidden;
+  border-radius: $radius-lg;
+  border: 1px solid $border;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
   @include flex(row, stretch, flex-start, 0);
   box-shadow: $shadow-md;
 }
 
-.miniBookSpine { width: 8px; flex-shrink: 0; }
+.miniBookSpine {
+  width: 8px;
+  flex-shrink: 0;
+}
 
 .miniBookContent {
   @include flex(column, flex-start, flex-start, $space-4);
-  padding: $space-8 $space-6; flex: 1;
+  padding: $space-8 $space-6;
+  flex: 1;
 }
 
 .miniBookTitle {
-  font-size: 18px; font-weight: 500; line-height: 1.2; letter-spacing: -0.02em;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .miniBookSubtitle {
-  font-family: $font-body; font-size: $text-xs; color: $muted; font-style: italic;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
+  font-style: italic;
 }
 
 .miniBookLines {
@@ -211,43 +349,75 @@
 }
 
 .miniBookLine {
-  height: 6px; background: rgba(0,0,0,0.08); border-radius: $radius-full;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: $radius-full;
 }
 
 .miniBookStats {
   @include flex(row, center, flex-start, $space-3);
   margin-top: auto;
-  font-family: $font-body; font-size: $text-xs; color: $muted; font-weight: $weight-medium;
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
+  font-weight: $weight-medium;
 }
 
 .fullPreviewBtn {
-  @include button-reset; @include flex(row, center, center, $space-2); @include focus-ring;
-  padding: $space-3; border: 1.5px solid $border; border-radius: $radius-md;
-  font-family: $font-body; font-size: $text-sm; font-weight: $weight-semibold;
-  color: $ink-light; cursor: pointer; transition: all $duration-base $ease-in-out;
-  &:hover { border-color: $ink; color: $ink; }
+  @include button-reset;
+  @include flex(row, center, center, $space-2);
+  @include focus-ring;
+  padding: $space-3;
+  border: 1.5px solid $border;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink-light;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  &:hover {
+    border-color: $ink;
+    color: $ink;
+  }
 }
 
 .downloadHint {
-  padding: $space-4; background: $accent-pale; border-radius: $radius-md;
+  padding: $space-4;
+  background: $accent-pale;
+  border-radius: $radius-md;
   border: 1px solid rgba($accent, 0.2);
-  p { font-family: $font-body; font-size: $text-xs; color: $accent-dark; line-height: 1.6; }
-  strong { font-weight: $weight-semibold; }
+  p {
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $accent-dark;
+    line-height: 1.6;
+  }
+  strong {
+    font-weight: $weight-semibold;
+  }
 }
 
 // ── Preview modal ─────────────────────────────────────────
 
 .previewOverlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  z-index: $z-modal; @include flex-center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: $z-modal;
+  @include flex-center;
   backdrop-filter: blur(4px);
   animation: fadeInFast $duration-base ease both;
 }
 
 .previewModal {
-  width: 90vw; max-width: 1100px; height: 90vh;
+  width: 90vw;
+  max-width: 1100px;
+  height: 90vh;
   @include flex(column, stretch, flex-start, 0);
-  background: $surface; border-radius: $radius-xl; overflow: hidden;
+  background: $surface;
+  border-radius: $radius-xl;
+  overflow: hidden;
   box-shadow: $shadow-xl;
   animation: fadeIn $duration-base $ease-out-expo both;
 }
@@ -261,18 +431,114 @@
 }
 
 .previewTitle {
-  font-family: $font-display; font-size: $text-xl; font-weight: $weight-medium;
-  color: $ink; letter-spacing: -0.02em;
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-medium;
+  color: $ink;
+  letter-spacing: -0.02em;
 }
 
 .closePreviewBtn {
-  @include button-reset; @include focus-ring;
-  width: 32px; height: 32px; border-radius: $radius-full;
-  @include flex-center; font-size: 16px; color: $muted;
-  cursor: pointer; transition: all $duration-fast $ease-in-out;
-  &:hover { background: $surface-muted; color: $ink; }
+  @include button-reset;
+  @include focus-ring;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  @include flex-center;
+  font-size: 16px;
+  color: $muted;
+  cursor: pointer;
+  transition: all $duration-fast $ease-in-out;
+  &:hover {
+    background: $surface-muted;
+    color: $ink;
+  }
 }
 
 .previewFrame {
-  flex: 1; border: none; width: 100%;
+  flex: 1;
+  border: none;
+  width: 100%;
+}
+
+// ── Size picker ───────────────────────────────────────────
+
+.sizeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sizeCard {
+  @include button-reset;
+  @include flex(row, center, flex-start, $space-3);
+  @include focus-ring;
+  border: 1.5px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  cursor: pointer;
+  transition: all $duration-base $ease-in-out;
+  position: relative;
+  text-align: start;
+  &:hover {
+    border-color: $accent;
+    background: $accent-pale;
+  }
+}
+
+.sizeCardActive {
+  border-color: $accent;
+  background: $accent-pale;
+  box-shadow: 0 0 0 3px rgba($accent, 0.12);
+}
+
+.sizeIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.sizeInfo {
+  @include flex(column, flex-start, flex-start, 2px);
+  flex: 1;
+}
+
+.sizeName {
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $ink;
+}
+
+.sizeSub {
+  font-family: $font-body;
+  font-size: $text-xs;
+  color: $muted;
+}
+
+.sizeRec {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: $weight-semibold;
+  color: $accent;
+  background: rgba($accent, 0.12);
+  border-radius: $radius-full;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.sizeCheck {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: $radius-full;
+  background: $accent;
+  color: $surface;
+  @include flex-center;
+  font-size: 11px;
+  font-weight: 700;
 }

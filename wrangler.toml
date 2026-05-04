@@ -1,0 +1,21 @@
+name            = "loombox-worker"
+main            = "worker/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ── R2 bucket binding ─────────────────────────────────────
+[[r2_buckets]]
+binding     = "LOOMBOX_BUCKET"
+bucket_name = "loombox-uploads"
+
+# ── Environment variables ─────────────────────────────────
+# ANTHROPIC_API_KEY is set as a secret (never in this file):
+#   wrangler secret put ANTHROPIC_API_KEY
+
+[vars]
+ALLOWED_ORIGIN = "*"
+
+# ── Local dev ─────────────────────────────────────────────
+[dev]
+port = 8787
+local_protocol = "http"

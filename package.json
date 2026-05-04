@@ -31,6 +31,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260504.1",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

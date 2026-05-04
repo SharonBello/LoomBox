@@ -1,0 +1,321 @@
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
+
+// ── Trigger button ────────────────────────────────────────
+
+.createBtn {
+    @include button-reset;
+    @include flex(row, center, center, $space-2);
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    background: #1a1929;
+    color: $surface;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        background: $accent;
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+    }
+}
+
+// ── Modal overlay ─────────────────────────────────────────
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: $z-modal;
+    @include flex-center;
+    backdrop-filter: blur(6px);
+    animation: fadeInFast $duration-base ease both;
+}
+
+.modal {
+    width: min(96vw, 980px);
+    max-height: 92vh;
+    @include flex(column, stretch, flex-start, 0);
+    background: $surface;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+    animation: slideUp $duration-slow $ease-out-expo both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// ── Header ────────────────────────────────────────────────
+
+.modalHeader {
+    @include flex-between;
+    padding: $space-6;
+    border-bottom: 1px solid $border;
+    flex-shrink: 0;
+}
+
+.modalTitle {
+    font-family: $font-display;
+    font-size: $text-2xl;
+    font-weight: $weight-medium;
+    color: $ink;
+    letter-spacing: -0.02em;
+}
+
+.modalSub {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $muted;
+    margin-top: 2px;
+}
+
+.closeBtn {
+    @include button-reset;
+    @include focus-ring;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+    @include flex-center;
+    color: $muted;
+    cursor: pointer;
+    transition: all $duration-fast $ease-in-out;
+    &:hover {
+        background: $surface-muted;
+        color: $ink;
+    }
+}
+
+// ── Style picker ──────────────────────────────────────────
+
+.stylePicker {
+    @include flex(column, stretch, flex-start, $space-5);
+    padding: $space-6;
+    overflow-y: auto;
+}
+
+.stylePickerLabel {
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $ink;
+}
+
+.styleGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-3;
+    @include mobile {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.styleCard {
+    @include button-reset;
+    @include flex(column, center, center, $space-2);
+    @include focus-ring;
+    padding: $space-4 $space-3;
+    border: 1.5px solid $border;
+    border-radius: $radius-lg;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    text-align: center;
+    &:hover {
+        border-color: $accent;
+        background: $accent-pale;
+        transform: translateY(-2px);
+    }
+}
+
+.styleCardActive {
+    border-color: $accent;
+    background: $accent-pale;
+    box-shadow: 0 0 0 3px rgba($accent, 0.15);
+}
+
+.styleEmoji {
+    font-size: 24px;
+}
+
+.styleLabel {
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $ink;
+}
+
+.styleDesc {
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $muted;
+    line-height: $leading-snug;
+    text-align: center;
+}
+
+.generateBtn {
+    @include button-reset;
+    @include flex(row, center, center, $space-2);
+    @include focus-ring;
+    align-self: center;
+    padding: $space-3 $space-8;
+    background: $ink;
+    color: $surface;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        background: $accent;
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+    }
+}
+
+// ── Loading ───────────────────────────────────────────────
+
+.loadingState {
+    @include flex(column, center, center, $space-4);
+    padding: $space-16;
+    flex: 1;
+}
+
+.loadingMsg {
+    font-family: $font-body;
+    font-size: $text-base;
+    font-weight: $weight-semibold;
+    color: $ink;
+    text-align: center;
+}
+
+.loadingHint {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $muted;
+    text-align: center;
+}
+
+// ── Error ─────────────────────────────────────────────────
+
+.errorState {
+    @include flex(column, center, center, $space-4);
+    padding: $space-10;
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: #a32d2d;
+    text-align: center;
+}
+
+.retryBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-2 $space-6;
+    background: $ink;
+    color: $surface;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+}
+
+// ── Preview ───────────────────────────────────────────────
+
+.previewSection {
+    @include flex(column, stretch, flex-start, $space-4);
+    padding: $space-6;
+    overflow-y: auto;
+}
+
+.reelFrame {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: $radius-md;
+    background: #000;
+    box-shadow: $shadow-md;
+}
+
+.actionRow {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $space-3;
+}
+
+.actionBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $muted;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        border-color: $border-strong;
+        color: $ink;
+    }
+}
+
+.shareBtn {
+    @include button-reset;
+    @include flex(row, center, center, $space-2);
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    border: 1.5px solid $ink;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $ink;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        background: $ink;
+        color: $surface;
+    }
+}
+
+.downloadBtn {
+    @include button-reset;
+    @include flex(row, center, center, $space-2);
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    background: $accent;
+    color: $surface;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        background: $accent-dark;
+    }
+}
+
+.downloadHint {
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $muted;
+    line-height: $leading-relaxed;
+    text-align: center;
+    padding: $space-3 $space-4;
+    background: $surface-muted;
+    border-radius: $radius-md;
+}

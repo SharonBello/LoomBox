@@ -32,4 +32,14 @@ export default defineConfig({
       },
     },
   },
+  // Proxy /api/* to local Worker during development
+  // Run `npx wrangler dev` in a separate terminal on port 8787
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8787',
+        changeOrigin: true,
+      },
+    },
+  },
 })
