@@ -9,18 +9,18 @@ interface Props { children: React.ReactNode }
 const AdminRoute = ({ children }: Props) => {
   const { user } = useAppStore()
   const [checking, setChecking] = useState(true)
-  const [isAdmin,  setIsAdmin]  = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
     if (!user) { setChecking(false); return }
     adminService.isAdmin(user.uid)
       .then(result => setIsAdmin(result))
-      .finally(()  => setChecking(false))
+      .finally(() => setChecking(false))
   }, [user])
 
-  if (!user)    return <Navigate to="/auth" replace />
+  if (!user) return <Navigate to="/auth" replace />
   if (checking) return (
-    <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:'100vh' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <CircularProgress sx={{ color: '#c9954a' }} />
     </div>
   )
