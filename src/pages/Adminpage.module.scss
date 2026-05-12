@@ -1,0 +1,280 @@
+@use "@/styles/tokens" as *;
+@use "@/styles/mixins" as *;
+
+.page {
+    @include flex(column, stretch, flex-start, $space-8);
+    animation: fadeIn $duration-slow $ease-out-expo both;
+    padding-bottom: $space-16;
+}
+
+.loader {
+    @include flex-center;
+    min-height: 50vh;
+}
+
+// ── Header ────────────────────────────────────────────────
+
+.header {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $space-4;
+}
+
+.title {
+    font-family: $font-display;
+    font-size: $text-3xl;
+    font-weight: $weight-medium;
+    color: $ink;
+    letter-spacing: -0.02em;
+}
+
+.sub {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $muted;
+    margin-top: $space-1;
+}
+
+.refreshBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $muted;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        border-color: $border-strong;
+        color: $ink;
+    }
+}
+
+// ── Stats grid ────────────────────────────────────────────
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $space-4;
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.statCard {
+    @include flex(column, center, center, $space-2);
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    padding: $space-5;
+    text-align: center;
+}
+
+.statCardAlert {
+    border-color: rgba(224, 92, 92, 0.4);
+    background: #fef9f9;
+}
+
+.statEmoji {
+    font-size: 24px;
+}
+
+.statValue {
+    font-family: $font-display;
+    font-size: $text-3xl;
+    font-weight: $weight-medium;
+    color: $ink;
+    letter-spacing: -0.02em;
+}
+
+.statLabel {
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $muted;
+    font-weight: $weight-medium;
+    text-align: center;
+}
+
+// ── Table ─────────────────────────────────────────────────
+
+.tableWrap {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead tr {
+        background: $surface-muted;
+        th {
+            font-family: $font-body;
+            font-size: $text-xs;
+            font-weight: $weight-semibold;
+            color: $muted;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            padding: $space-3 $space-4;
+            text-align: start;
+            border-bottom: 1px solid $border;
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid $border;
+        transition: background $duration-fast $ease-in-out;
+        &:last-child {
+            border-bottom: none;
+        }
+        &:hover {
+            background: $surface-muted;
+        }
+
+        td {
+            font-family: $font-body;
+            font-size: $text-sm;
+            color: $ink-light;
+            padding: $space-3 $space-4;
+            vertical-align: middle;
+        }
+    }
+}
+
+.rowFlagged {
+    background: #fff8f8 !important;
+}
+
+.tdTitle {
+    font-weight: $weight-semibold;
+    color: $ink;
+    max-width: 280px;
+    @include truncate;
+}
+
+.tdMono {
+    font-family: monospace;
+    font-size: 12px;
+    color: $muted;
+}
+
+// ── Flagged cards ─────────────────────────────────────────
+
+.flaggedCard {
+    padding: $space-5 $space-6;
+    border-bottom: 1px solid $border;
+    &:last-child {
+        border-bottom: none;
+    }
+    background: $surface;
+    transition: background $duration-fast $ease-in-out;
+    &:hover {
+        background: $surface-muted;
+    }
+}
+
+.flaggedMeta {
+    @include flex(row, center, flex-start, $space-2);
+    margin-bottom: $space-2;
+}
+
+.flaggedTitle {
+    font-family: $font-body;
+    font-size: $text-base;
+    font-weight: $weight-semibold;
+    color: $ink;
+}
+
+.flaggedPreview {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $muted;
+    line-height: $leading-base;
+    margin-bottom: $space-2;
+    @include truncate(2);
+}
+
+.flaggedUser {
+    font-family: monospace;
+    font-size: 11px;
+    color: $muted;
+    margin-bottom: $space-3;
+}
+
+.flaggedActions {
+    @include flex(row, center, flex-start, $space-1);
+}
+
+// ── Empty state ───────────────────────────────────────────
+
+.empty {
+    @include flex(column, center, center, $space-3);
+    padding: $space-16;
+    font-family: $font-body;
+    font-size: $text-base;
+    color: $muted;
+    text-align: center;
+}
+
+// ── Role button ───────────────────────────────────────────
+
+.roleBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-1 $space-3;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-xs;
+    font-weight: $weight-semibold;
+    color: $muted;
+    cursor: pointer;
+    transition: all $duration-fast $ease-in-out;
+    &:hover {
+        border-color: $accent;
+        color: $accent;
+        background: $accent-pale;
+    }
+}
+
+// ── Dialog buttons ────────────────────────────────────────
+
+.cancelBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    color: $muted;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        border-color: $border-strong;
+        color: $ink;
+    }
+}
+
+.deleteBtn {
+    @include button-reset;
+    @include focus-ring;
+    padding: $space-2 $space-5;
+    background: #e05c5c;
+    color: $surface;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+    &:hover {
+        background: #c94444;
+    }
+}

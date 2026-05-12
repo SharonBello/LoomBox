@@ -52,13 +52,15 @@ export interface Story {
   title:        string
   content:      string
   enhancedContent?: string
-  era?:         string        // e.g. "1950s", "1942"
+  era?:         string
   location?:    string
   historicalContext?: string
   aiImageUrl?:  string
   photoUrls:    string[]
   taggedMemberIds: string[]
   isInBook:     boolean
+  flagged?:     boolean
+  flagReason?:  string
   createdAt:    Date
   updatedAt:    Date
 }
