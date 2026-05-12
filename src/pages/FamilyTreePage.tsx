@@ -14,7 +14,7 @@ import GridViewIcon from '@mui/icons-material/GridView'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
 import { useAppStore } from '@/store/appStore'
 import { memberService } from '@/services/memberService'
-import FamilyTreeDiagram from '@/features/tree/FamilyTreeDiagram'
+import { FamilyTreeDiagram } from '@/features/tree/FamilyTreeDiagram'
 import type { FamilyMember, RelationType } from '@/types'
 import styles from './FamilyTreePage.module.scss'
 
@@ -189,7 +189,6 @@ const FamilyTreePage = () => {
               <DetailPanel
                 member={selected}
                 members={members}
-                lang={lang}
                 relLabel={relLabel}
                 onEdit={openEdit}
                 onClose={() => setSelected(null)}
@@ -249,7 +248,6 @@ const FamilyTreePage = () => {
               <DetailPanel
                 member={selected}
                 members={members}
-                lang={lang}
                 relLabel={relLabel}
                 onEdit={openEdit}
                 onClose={() => setSelected(null)}
@@ -337,8 +335,8 @@ const FamilyTreePage = () => {
 }
 
 // ── Shared detail panel ───────────────────────────────────
-const DetailPanel = ({ member, members, lang, relLabel, onEdit, onClose, onSelectRelated }: {
-  member: FamilyMember; members: FamilyMember[]; lang: string
+const DetailPanel = ({ member, members, relLabel, onEdit, onClose, onSelectRelated }: {
+  member: FamilyMember; members: FamilyMember[]
   relLabel: (t: RelationType) => string
   onEdit: (m: FamilyMember) => void
   onClose: () => void
